@@ -17,6 +17,7 @@ mongoose.connect("mongodb+srv://Razr7:batman123@cluster0-g0pwk.mongodb.net/test?
 
 //importing routes...........................................................
 const placeRoutes = require('./routes/place');
+const userRoutes = require('./routes/user');
 
 
 
@@ -24,6 +25,7 @@ const placeRoutes = require('./routes/place');
 app.use(bodyParser.json());
 
 app.use('/place',placeRoutes);
+app.use('/user',userRoutes);
 
 
 
