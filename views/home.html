@@ -1,32 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>MatchIT</title>
+  <style>
+
+    /* Default to hide the video on all devices */
+#video{display:none}
+
+/* Default to display the image on all devices */
+#videosubstitute{display:block;width:auto;height:100%;}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+#fullScreenDiv{
+    width:100%;
+    min-height: 100%; 
+   /* Set the height to match that of the viewport. */
+    height: 100vh;
+    width: auto;
+    padding:0!important;
+    margin: 0!important;
+    background-color: gray;
+    position: relative;
+}
+#video{    
+    width: 100vw; 
+    height: auto;
+    object-fit: cover;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  #video{
+    height: 150%;
+    top: -100%;
+  }
+  #videosubstitute{
+    display:block;
+    width: 100%;
+    height: auto;}
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #video {
+    width: 150%;
+    left: -100%;
+  }
+  #videosubstitute{display:block;width:auto;height:100%;}
+}
+/*if there is 992  pixels or more, then display the video but hide the image*/
+@media only screen and (min-width : 992px) {
+#video{display:block;}
+#videosubstitute{display:none}
+}   
+
+/* The container for our text and stuff */
+#messageBox{
+    position: absolute;  top: 0;  left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:100%;
+}
+
+
+  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body >
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
-  </ul>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><b>MatchIT</b></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <!-- <li ><a href="#">Home</a></li> -->
+      <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a> -->
+        <!-- <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul> -->
+      <!-- </li>
+      <li><a href="#">Page 2</a></li> -->
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="./Login_v6/register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="./Login_v6/index.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
 </nav>
+<!-- <video class="playo_video hidden-xs" autoplay="" loop="" muted=""><source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/mp4"></video> -->
+<!-- 
+
+  <div id="fullScreenDiv">
+      <img src="https://playo-website.imgix.net/video/video-720.mp4" id="videosubstitute" alt="Full screen background video">
+      <div id="videoDiv">           
+          <video preload="preload" id="video" autoplay="autoplay" loop="loop">
+          <source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/webm"></source>
+          <source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/mp4"></source>
+          </video> 
+      </div>
+      <div id="messageBox"> 
+          <div>
+              <h1>Full screen background video</h1>
+              <h2>Would you like this on your site?</h2>
+              <h3><a href="#main" class="scrolly">Read below</a></h3>
+          </div>
+      </div>   
+  </div> -->
+
+
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <img class="card-img-top" src="https://coronadousd.net/static/media/uploads/Coronado%20High%20School/Events/soccerBall.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        </div>
+ 
+  
 
 </body>
 </html>
