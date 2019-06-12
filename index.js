@@ -5,7 +5,7 @@ const app = express()
 
 const port = 3000;
 
-<<<<<<< HEAD
+
 mongoose.connect("mongodb+srv://Razr7:batman123@cluster0-g0pwk.mongodb.net/test?retryWrites=true&w=majority",function(err){
     if(err){
         console.log(err);
@@ -13,9 +13,6 @@ mongoose.connect("mongodb+srv://Razr7:batman123@cluster0-g0pwk.mongodb.net/test?
     else
     console.log("Atlas Connected");
 })
-=======
-
->>>>>>> 1435a538ceee4e89b897dd3a4d3315dd502e9f0c
 
 
 //importing routes...........................................................
