@@ -57,8 +57,11 @@ router.post('/register',function(req,res,next){
             res.send("Account already exists").status(400);
         }
         else{
-            newUser.save();
-            res.send("Account created").status(201);
+            newUser.save()
+            .then(users => {
+                res.redirect('/user/login');
+            })
+            .catch(err => console.log(err));
         }
     });
 

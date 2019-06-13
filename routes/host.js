@@ -6,6 +6,11 @@ const mongoose = require('mongoose')
 const hostModel = require('../models/hostModel');
 const eventModel = require('../models/eventsModel');
 
+//host login--------------------------------------------------------------------
+router.get('/login',function(req,res,next){
+    res.render('loginHost');
+})
+
 
 
 
@@ -32,6 +37,7 @@ router.post('/register',function(req,res,next){
         password : bcrypt.hashSync(req.body.password,10),
         phoneno : req.body.phoneno
     })
+
 
    
     hostModel.find({email:req.body.email})
