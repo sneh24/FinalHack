@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
 
 const userModel = require('../models/userModel');
 const eventModel = require('../models/eventsModel');
@@ -49,6 +50,7 @@ router.post('/register',function(req,res,next){
         else{
             newUser.save()
             .then(users => {
+                
                 res.redirect('/user/login');
             })
             .catch(err => console.log(err));
@@ -56,6 +58,15 @@ router.post('/register',function(req,res,next){
     });
 
 })
+
+//Login Handle
+router.post('/login', (req,res,next) => {
+    passport.authenticate('local', {
+        successredirect: '/',
+        failueRedirect: '/user/login',
+        failueFlash: true
+    })(req,res,next);
+});
 
 
 router.get('/getevents/:sport',function(req,res,next){
