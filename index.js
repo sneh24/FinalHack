@@ -26,9 +26,9 @@ const hostRoutes = require('./routes/host');
 //middlewares
 app.use(bodyParser.json());
 app.set('view engine','ejs')
-
-
 app.use(express.static('./public'));
+
+
 
 
 app.use('/homepage',homeRoutes);

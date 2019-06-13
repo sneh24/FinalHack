@@ -7,6 +7,16 @@ const userModel = require('../models/userModel');
 const eventModel = require('../models/eventsModel');
 
 
+
+//user register page---------------------------------------------------------------------
+router.get('/register',function(req,res,next){
+    res.render('register');
+})
+
+
+
+
+
 //user homepage-----------------------------------------------------------------------------
 router.get('/',function(req,res,next){
     res.send("user").status(200);
