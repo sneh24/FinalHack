@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
   <title>MatchIT</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/FrontPage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/FrontPage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+
+  <!-- Custom styles for this template -->
+  <link href="/FrontPage/css/agency.min.css" rel="stylesheet">
+
+
   <style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+     @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
 html,
 body {
@@ -168,100 +194,204 @@ html, body {
     height:100%;
 }
 
-
   </style>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
-<body >
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><b>MatchIT</b></a>
-    </div>
-    <ul class="nav navbar-nav">
-      <!-- <li ><a href="#">Home</a></li> -->
-      <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a> -->
-        <!-- <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul> -->
-      <!-- </li>
-      <li><a href="#">Page 2</a></li> -->
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="user/register" id="register" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="user/register"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>
-<!-- <video class="playo_video hidden-xs" autoplay="" loop="" muted=""><source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/mp4"></video> -->
-<!-- 
+<body id="page-top">
 
-  <div id="fullScreenDiv">
-      <img src="https://playo-website.imgix.net/video/video-720.mp4" id="videosubstitute" alt="Full screen background video">
-      <div id="videoDiv">           
-          <video preload="preload" id="video" autoplay="autoplay" loop="loop">
-          <source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/webm"></source>
-          <source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/mp4"></source>
-          </video> 
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">MatchIT</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user/register" id="register" ><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+          </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+      </li>
+        </ul>
       </div>
-      <div id="messageBox"> 
-          <div>
-              <h1>Full screen background video</h1>
-              <h2>Would you like this on your site?</h2>
-              <h3><a href="#main" class="scrolly">Read below</a></h3>
-          </div>
-      </div>   
-  </div> -->
+    </div>
+  </nav>
+  <video class="playo_video hidden-xs" autoplay="" loop="" muted="" width="100%"><source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/mp4"></video>
 
+<div></br></br></br></div>
 
-
-      <!-- <div class="container">
-          
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                    <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                  </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
+                          </a>
+                        </h4>
+                        <p class="">
+                            Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                        </p>
+                    </div>
+                    <div class="card-read-more">
+                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                            Join
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div> -->
-          <div class="content">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-xs-12 col-sm-4">
-                          <div class="card">
-                              <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                              <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
-                            </a>
-                              <div class="card-content">
-                                  <h4 class="card-title">
-                                      <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
-                                    </a>
-                                  </h4>
-                                  <p class="">
-                                      Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
-                                  </p>
-                              </div>
-                              <div class="card-read-more">
-                                  <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
-                                      Join
-                                  </a>
-                              </div>
-                          </div>
-                      </div>
-          
-  
+
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                    <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                  </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
+                          </a>
+                        </h4>
+                        <p class="">
+                            Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                        </p>
+                    </div>
+                    <div class="card-read-more">
+                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                            Join
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                    <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                  </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
+                          </a>
+                        </h4>
+                        <p class="">
+                            Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                        </p>
+                    </div>
+                    <div class="card-read-more">
+                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                            Join
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                    <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                  </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
+                          </a>
+                        </h4>
+                        <p class="">
+                            Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                        </p>
+                    </div>
+                    <div class="card-read-more">
+                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                            Join
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                    <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                  </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
+                          </a>
+                        </h4>
+                        <p class="">
+                            Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                        </p>
+                    </div>
+                    <div class="card-read-more">
+                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                            Join
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                    <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                  </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
+                          </a>
+                        </h4>
+                        <p class="">
+                            Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                        </p>
+                    </div>
+                    <div class="card-read-more">
+                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                            Join
+                        </a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+                                                            
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/FrontPage/vendor/jquery/jquery.min.js"></script>
+  <script src="/FrontPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="/FrontPage/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="/FrontPage/js/jqBootstrapValidation.js"></script>
+  <script src="/FrontPage/js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/FrontPage/js/agency.min.js"></script>
 
 </body>
-
-
 
 </html>

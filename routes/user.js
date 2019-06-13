@@ -53,7 +53,7 @@ router.post('/register',function(req,res,next){
                 
                 res.redirect('/user/login');
             })
-            .catch(err => console.log(err));
+            .catch(next);
         }
     });
 
