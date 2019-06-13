@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>MatchIT</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../public/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../public/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../public/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+		
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+	  <div class="navbar-header">
+		<a class="navbar-brand" href="/homepage"><b>MatchIT</b></a>
+	  </div>
+	  <ul class="nav navbar-nav">
+	  </ul>
+	</div>
+  </nav>
+
+  
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form class="login100-form validate-form" method="post" action="/host/register">
+					<span class="login100-form-title p-b-70">
+						Add Event
+					</span>
+					
+					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter sport">
+            <div class="dropdown">
+                <button id="dLabel" class="dropdown-select input100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select Sport
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dLabel" style="width: 390px;">
+                  <li>&nbsp&nbsp  Football</li>
+                  <li>&nbsp&nbsp  Cricket</li>
+                  <li>&nbsp&nbsp  Hockey</li>
+                  <li>&nbsp&nbsp  Basketball</li>
+                  <li>&nbsp&nbsp  Badminton</li>
+                  <li>&nbsp&nbsp  Tennis</li>
+                  <li>&nbsp&nbsp  Volleyball</li>
+                  <li>&nbsp&nbsp  Kabadi</li>
+                  <li>&nbsp&nbsp  Table Tennis</li>
+                  <li>&nbsp&nbsp  Rugby</li>
+                </ul>
+              </div>
+          </div>
+                    
+                    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter location">
+                        <div class="dropdown">
+                            <button id="dLabel" class="dropdown-select input100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Select Location
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel" style="width: 390px;">
+                              <li>&nbsp&nbsp  Marathahali</li>
+                              <li>&nbsp&nbsp  BTM Layout</li>
+                              <li>&nbsp&nbsp  HSR Layout</li>
+                              <li>&nbsp&nbsp  Domlur</li>
+                              <li>&nbsp&nbsp  Jayanagar</li>
+                              <li>&nbsp&nbsp  Kormangala</li>
+                              <li>&nbsp&nbsp  Whitefield</li>
+                              
+                            </ul>
+                          </div>
+                          
+                    </div>
+                      
+
+                    <div class="wrap-input100 validate-input m-b-50" data-validate="Enter phone no">
+						<input class="input100" type="date" name="date">
+						<span class="focus-input100" data-placeholder="Date"></span>
+                    </div>
+
+                   
+                    <div class="wrap-input100 validate-input m-b-50" data-validate="Enter sport">
+						<input class="input100" type="number" name="capacity">
+						<span class="focus-input100" data-placeholder="Capacity"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							ADD EVENT
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="../public/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../public/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../public/vendor/bootstrap/js/popper.js"></script>
+	<script src="../public/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../public/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../public/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../public/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../public/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../public/js/main.js"></script>
+
+</body>
+</html>
