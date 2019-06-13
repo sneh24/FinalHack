@@ -51,7 +51,7 @@ router.post('/register',function(req,res,next){
             .then(users => {
                 res.redirect('/user/login');
             })
-            .catch(err => console.log(err));
+            .catch(next);
         }
     });
 
