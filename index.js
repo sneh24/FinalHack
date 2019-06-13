@@ -18,6 +18,7 @@ mongoose.connect("mongodb+srv://Razr7:batman123@cluster0-g0pwk.mongodb.net/test?
 const placeRoutes = require('./routes/place');
 const userRoutes = require('./routes/user');
 const homeRoutes = require('./routes/homeRoutes');
+const hostRoutes = require('./routes/host');
 
 
 
@@ -28,6 +29,7 @@ app.use(bodyParser.json());
 app.use('/homepage',homeRoutes);
 app.use('/place',placeRoutes);
 app.use('/user',userRoutes);
+app.use('/host',hostRoutes);
 
 
 

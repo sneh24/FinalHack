@@ -21,8 +21,7 @@ router.post('/register',function(req,res,next){
         email : req.body.email,
         password : bcrypt.hashSync(req.body.password,10),
         phoneno : req.body.phoneno,
-        sport : req.body.sport,
-        Curevent : req.body.Curevent
+        sport : req.body.sport
     })
 
    
