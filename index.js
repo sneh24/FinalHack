@@ -5,6 +5,10 @@ const app = express()
 
 const port = 3000;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b6f8196339f0e33609d160bbb159f440e561971
 mongoose.connect("mongodb+srv://Razr7:batman123@cluster0-g0pwk.mongodb.net/test?retryWrites=true&w=majority",function(err){
     if(err){
         console.log(err);
@@ -16,6 +20,7 @@ mongoose.connect("mongodb+srv://Razr7:batman123@cluster0-g0pwk.mongodb.net/test?
 
 //importing routes...........................................................
 const placeRoutes = require('./routes/place');
+const userRoutes = require('./routes/user');
 
 
 
@@ -23,6 +28,7 @@ const placeRoutes = require('./routes/place');
 app.use(bodyParser.json());
 
 app.use('/place',placeRoutes);
+app.use('/user',userRoutes);
 
 
 

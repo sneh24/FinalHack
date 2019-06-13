@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const mongoose = require('mongoose')
 
 //import place model
 const placeModel = require('../models/placeModel');
@@ -16,7 +17,8 @@ router.get('/',function(req,res,next){
 
 //post new places
 router.post('/',function(req,res,next){
-    let newPlace = new placeModel({
+    const newPlace = new placeModel({
+        _id: new mongoose.Types.ObjectId(),
         location : req.body.location,
         sport : req.body.sport
     })
