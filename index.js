@@ -11,7 +11,8 @@ const port = 3000;
 
 require('./config/passport')(passport);
 
-const db = require('./config/keys').mongoURI;
+
+const db = require('./config/keys').MongoURI;
 
 mongoose.connect(db,{ useNewUrlParser: true })
     .then(() => console.log('Atlas Connected'))

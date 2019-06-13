@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 
 //import local modules----------------------------------------------------------
 const hostModel = require('../models/hostModel');
