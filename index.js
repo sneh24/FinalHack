@@ -24,9 +24,11 @@ const hostRoutes = require('./routes/host');
 
 
 //middlewares
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.set('view engine','ejs')
-app.use(express.static('./public'));
+app.set('views','./views')
+app.use(express.static(__dirname+'/public'));
 
 
 
