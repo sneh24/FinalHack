@@ -11,6 +11,7 @@ const eventSchema = mongoose.Schema({
         ref : 'Place',
         required : true
     },
+    sport :{type:String,required:true},
     date : {type:Date,required:true},
     user : {type:Array,required:false},
     capacity : {type:Number,required:true},

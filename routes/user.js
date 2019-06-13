@@ -4,12 +4,17 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 
 const userModel = require('../models/userModel');
+const eventModel = require('../models/eventsModel');
 
+
+//user homepage-----------------------------------------------------------------------------
 router.get('/',function(req,res,next){
     res.send("user").status(200);
 })
 
-router.post('/',function(req,res,next){
+
+//register-----------------------------------------------------------------------------------
+router.post('/register',function(req,res,next){
     const newUser = new userModel({
         _id: new mongoose.Types.ObjectId(),
         name : req.body.name,
@@ -33,6 +38,22 @@ router.post('/',function(req,res,next){
         }
     })
 
+})
+
+
+router.get('/getevents/:sport',function(req,res,next){
+    eventModel.find({sport:req.params.sport})
+    .exec()
+    .then((event)=>{
+        if(event.length>0)
+        {
+            res.send(event);
+        }
+        else{
+            res.send("No Events");
+        }
+    })
+    .catch(next)
 })
 
 module.exports = router;
