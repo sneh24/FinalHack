@@ -32,4 +32,4 @@ router.post('/register',function(req,res,next){
 
 
 
-module.export = router;
+module.exports = router;

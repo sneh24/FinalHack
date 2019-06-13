@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 
 //import event modules
-const eventModel = require('../models/eventModel');
+const eventModel = require('../models/eventsModel');
 
 
 //get request
