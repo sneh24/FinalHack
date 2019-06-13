@@ -55,7 +55,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" action="/host/login">
 					<span class="login100-form-title p-b-70">
 						Host Log In 
 					</span>
@@ -66,12 +66,12 @@
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="password">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="submit" value="Submit">
 							Login
 						</button>
 					</div>

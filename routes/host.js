@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
+const { ensureAuthenticated } = require('../config/auth');
 
 //import local modules----------------------------------------------------------
 const hostModel = require('../models/hostModel');
@@ -48,14 +50,37 @@ router.post('/register',function(req,res,next){
             res.send("Account already exists").status(400);
         }
         else{
-            newHost.save();
-            res.send("Account created").status(201);
+            newHost.save()
+            .then(hosts => {
+                
+                res.redirect('/host/login');
+            })
+            .catch(next);
         }
     })
     .catch(next);
 })
 
+//Login Handle
+router.post('/login', (req,res,next) => {
+    passport.authenticate('local', {
+        successRedirect: '/host/home',
+        failueRedirect: '/host/login',
+        failueFlash: true
+    })(req,res,next);
+});
 
+
+//After Login page
+router.get('/home',ensureAuthenticated, (req,res) => {
+    res.render('user_page');
+})
+
+//Logout Handle
+router.get('/logout', (req,res) => {
+    req.logout();
+    res.redirect('/host/login');
+})
 
 //host adding events ---------------------------------------------------------------
 router.post('addevent/:hostid',function(req,res,next){
