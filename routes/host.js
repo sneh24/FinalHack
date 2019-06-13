@@ -13,6 +13,21 @@ router.get('/login',function(req,res,next){
 
 
 
+
+//host login-----------------------------------------------------------------------
+router.get('/login',function(req,res,next){
+    res.render('loginHost');
+})
+
+//host register-----------------------------------------------------------------------
+router.get('/register',function(req,res,next){
+    res.render('hostRegister');
+})
+
+
+
+
+
 //host register------------------------------------------------------------------
 router.post('/register',function(req,res,next){
     const newHost = new hostModel({

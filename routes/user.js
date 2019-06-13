@@ -13,6 +13,8 @@ router.get('/register',function(req,res,next){
     res.render('register');
 })
 
+
+//user login page---------------------------------------------------------------------
 router.get('/login',function(req,res,next){
     res.render('index');
 })
@@ -29,6 +31,7 @@ router.get('/',function(req,res,next){
 
 //register-----------------------------------------------------------------------------------
 router.post('/register',function(req,res,next){
+    console.log(req.body);
     const newUser = new userModel({
         _id: new mongoose.Types.ObjectId(),
         name : req.body.name,
