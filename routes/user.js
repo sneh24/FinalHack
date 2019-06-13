@@ -25,6 +25,7 @@ router.get('/',function(req,res,next){
 
 //register-----------------------------------------------------------------------------------
 router.post('/register',function(req,res,next){
+    console.log(req.body);
     const newUser = new userModel({
         _id: new mongoose.Types.ObjectId(),
         name : req.body.name,
