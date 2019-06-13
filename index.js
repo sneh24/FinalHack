@@ -3,16 +3,22 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express() 
 const ejs = require('ejs')
+const flash = require('connect-flash')
+const session = require('express-session');
+const passport = require('passport');
+
 
 const port = 3000;
 
-mongoose.connect("mongodb+srv://Razr7:batman123@cluster0-g0pwk.mongodb.net/test?retryWrites=true&w=majority",function(err){
-    if(err){
-        console.log(err);
-    }
-    else
-    console.log("Atlas Connected");
-})
+require('./config/passport')(passport);
+
+
+const db = require('./config/keys').MongoURI;
+
+mongoose.connect(db,{ useNewUrlParser: true })
+    .then(() => console.log('Atlas Connected'))
+    .catch(err => console.log(err))
+
 
 
 //importing routes...........................................................
@@ -29,8 +35,23 @@ app.use(bodyParser.json());
 app.set('view engine','ejs')
 app.set('views','./views')
 app.use(express.static(__dirname+'/public'));
+app.use(flash());
 
+//Express session middleware
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Global Vars
+// app.use((req,res,next) => {
+//     res.locals.success_msg = req.flash('success_msg');
+//     res.locals.error_msg = req.flash('error_msg');
+// })
 
 
 app.use('/homepage',homeRoutes);

@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
+const { ensureAuthenticated } = require('../config/auth');
 
 const userModel = require('../models/userModel');
 const eventModel = require('../models/eventsModel');
@@ -59,12 +61,35 @@ router.post('/register',function(req,res,next){
         else{
             newUser.save()
             .then(users => {
+                
                 res.redirect('/user/login');
             })
-            .catch(err => console.log(err));
+            .catch(next);
         }
     });
 
+})
+
+//Login Handle
+router.post('/login', (req,res,next) => {
+    passport.authenticate('local', {
+        successRedirect: '/user/home',
+        failueRedirect: '/user/login',
+        failueFlash: true
+    })(req,res,next);
+});
+
+
+
+//After Login page
+router.get('/home',ensureAuthenticated, (req,res) => {
+    res.render('user_page');
+})
+
+//Logout Handle
+router.get('/logout', (req,res) => {
+    req.logout();
+    res.redirect('/user/login');
 })
 
 
