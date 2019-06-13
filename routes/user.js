@@ -22,8 +22,13 @@ router.get('/',function(req,res,next){
     res.send("user").status(200);
 })
 
-router.get('/register',function(req,res,next){
-    res.render('Login_v6/register.ejs').status(200);
+// router.get('/register',function(req,res,next){
+//     res.render('Login_v6/register.ejs').status(200);
+
+// })
+
+router.get('/login',function(req,res,next){
+    res.render('index').status(200);
 
 })
 
