@@ -26,6 +26,14 @@ app.use('/place',placeRoutes);
 
 
 
+//error handling
+app.use(function(err,req,res,next){
+    console.log(err);
+    res.send({error:err}).status(400);
+});
+
+
+
 
 //server......................................................................
 

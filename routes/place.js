@@ -6,7 +6,12 @@ const placeModel = require('../models/placeModel');
 
 //get places
 router.get('/',function(req,res,next){
-    res.send("place").status(200);
+    placeModel.find({})
+    .exec()
+    .then(place=>{
+        res.send(place).status(200);
+    })
+    .catch(next);
 })
 
 //post new places
