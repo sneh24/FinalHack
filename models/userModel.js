@@ -4,12 +4,11 @@ const userSchema = mongoose.Schema({
     name : {type:String,required:true},
     email : {type:String,required:true,unique:true},
     password : {type:String,required:true},
-    phoneno : {type:Number,required:true},
+    phoneno : {type:String,required:true},
     sport : {type:String,required:true},
     Curevent:{
         type: mongoose.Schema.Types.ObjectId,
-        ref : 'Event',
-        required : false
+        ref : 'Event'
     }
 })
 
