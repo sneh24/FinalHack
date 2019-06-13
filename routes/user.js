@@ -35,9 +35,7 @@ router.post('/register',function(req,res,next){
     })
 
    
-    userModel.find({email:req.body.email})
-    .exec()
-    .then(users=>{
+    userModel.find({email:req.body.email},(err,users)=>{
         if(users.length>0){
             res.send("Account already exists").status(400);
         }
@@ -45,7 +43,7 @@ router.post('/register',function(req,res,next){
             newUser.save();
             res.send("Account created").status(201);
         }
-    })
+    });
 
 })
 
