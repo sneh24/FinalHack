@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express()
+const ejs = require('ejs')
 
 const port = 3000;
 
@@ -24,6 +25,10 @@ const hostRoutes = require('./routes/host');
 
 //middlewares
 app.use(bodyParser.json());
+app.set('view engine','ejs')
+
+
+app.use(express.static('./public'));
 
 
 app.use('/homepage',homeRoutes);
