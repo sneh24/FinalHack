@@ -7,10 +7,13 @@ const flash = require('connect-flash')
 const session = require('express-session');
 const passport = require('passport');
 
+
+
+
 const port = 3000;
 
 require('./config/passport')(passport);
-
+//require('./config/passport2')(passport);
 
 const db = require('./config/keys').MongoURI;
 
@@ -45,6 +48,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 //Global Vars
 // app.use((req,res,next) => {
