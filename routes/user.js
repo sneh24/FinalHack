@@ -7,6 +7,16 @@ const userModel = require('../models/userModel');
 const eventModel = require('../models/eventsModel');
 
 
+
+//user register page---------------------------------------------------------------------
+router.get('/register',function(req,res,next){
+    res.render('register');
+})
+
+
+
+
+
 //user homepage-----------------------------------------------------------------------------
 router.get('/',function(req,res,next){
     res.send("user").status(200);
@@ -30,9 +40,7 @@ router.post('/register',function(req,res,next){
     })
 
    
-    userModel.find({email:req.body.email})
-    .exec()
-    .then(users=>{
+    userModel.find({email:req.body.email},(err,users)=>{
         if(users.length>0){
             res.send("Account already exists").status(400);
         }
@@ -40,7 +48,7 @@ router.post('/register',function(req,res,next){
             newUser.save();
             res.send("Account created").status(201);
         }
-    })
+    });
 
 })
 
