@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>MatchIT</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/FrontPage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/FrontPage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+
+  <!-- Custom styles for this template -->
+  <link href="/FrontPage/css/agency.min.css" rel="stylesheet">
+
+
+  <style>
+
+      
+
+button,
+input {
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 400;
+}
+
+a {
+    color: #f96332;
+}
+
+a:hover,
+a:focus {
+    color: #f96332;
+}
+
+h2,
+.h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+h3,
+.h3 {
+    font-size: 1.825em;
+    margin-bottom: 30px;
+    line-height: 1.4em;
+}
+
+h4,
+.h4 {
+    font-size: 1.5em;
+    line-height: 1.45em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h4+.category,
+h4.title+.category,
+.h4+.category,
+.h4.title+.category {
+    margin-top: -5px;
+}
+
+h5,
+.h5 {
+    font-size: 1.3em;
+    line-height: 1.4em;
+    margin-bottom: 15px;
+}
+
+h5.category,
+.h5.category {
+    font-weight: 400;
+}
+
+p {
+    line-height: 1.61em;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+.title {
+    font-weight: 700;
+    padding-top: 30px;
+}
+
+.title+.category {
+    margin-top: -25px;
+}
+
+.description {
+    color: #9A9A9A;
+    font-weight: 300;
+}
+
+.category {
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #9A9A9A;
+}
+
+body {
+    color: #2c2c2c;
+    font-size: 14px;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+
+}
+
+
+img {
+    max-width: 100%;
+    border-radius: 1px;
+}
+
+.img-raised {
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.profile-page .page-header {
+    min-height: 700px;
+}
+
+.profile-page .photo-container {
+    width: 223px;
+    height: 223px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+}
+
+.profile-page .title {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.profile-page .description,
+.profile-page .category {
+    text-align: center;
+}
+
+
+.profile-page .content .social-description {
+    display: inline-block;
+    max-width: 150px;
+    width: 145px;
+    text-align: center;
+    margin: 15px 0 0px;
+}
+
+.profile-page .content .social-description h2 {
+    margin-bottom: 15px;
+}
+
+.page-header {
+    min-height: 100vh;
+    max-height: 999px;
+    padding: 0;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header>.container {
+    z-index: 2;
+    padding-top: 120px;
+    padding-bottom: 40px;
+}
+
+.page-header .page-header-image {
+    position: absolute;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+
+.page-header .container {
+    height: 100%;
+    z-index: 1;
+    text-align: center;
+    position: relative;
+}
+
+.page-header .category,
+.page-header .description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.page-header:after,
+.page-header:before {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: "";
+}
+
+
+  </style>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav" >
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">MatchIT</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/host/home/event">Add Event</a>
+          </li> -->
+          <!-- <li class="nav-item"> 
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="">Profile</a>
+          </li> 
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user/register" id="register" ><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+          </li> -->
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/host/logout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
+      </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- <video class="playo_video hidden-xs" autoplay="" loop="" muted="" width="100%"><source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/mp4"></video> -->
+  
+<!-- <div></br></br></br></div> -->
+
+
+
+<div class="profile-page sidebar-collapse">
+    
+        <div class="wrapper">
+          <div class="page-header clear-filter" filter-color="orange">
+            <div class="page-header-image" data-parallax="true" style="background-image:url('https://images.unsplash.com/photo-1534158914592-062992fbe900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=775&q=80');">
+            </div>
+            <div class="container">
+              <div class="photo-container">
+                <img src="https://images.unsplash.com/photo-1549669944-ca3e8b576248?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="">
+              </div>
+              <h3 class="title">Laura Egan </h3>
+              <p class="category">Designer</p>
+              <div class="content">
+                <div class="social-description">
+                  <h2>26</h2>
+                  <p>Comments</p>
+                </div>
+                <div class="social-description">
+                  <h2>15</h2>
+                  <p>Posts</p>
+                </div>
+                <div class="social-description">
+                  <h2>48</h2>
+                  <p>Bookmarks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      
+        </div>
+
+        
+    <!-- Footer -->
+    <footer class="footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <span class="copyright">Copyright &copy; Your Website 2019</span>
+                </div>
+                <div class="col-md-4">
+                  <ul class="list-inline social-buttons">
+                    <li class="list-inline-item">
+                      <a href="#">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                  <ul class="list-inline quicklinks">
+                    <li class="list-inline-item">
+                      <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#">Terms of Use</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+        
+      
+
+                                                          
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/FrontPage/vendor/jquery/jquery.min.js"></script>
+  <script src="/FrontPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="/FrontPage/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="/FrontPage/js/jqBootstrapValidation.js"></script>
+  <script src="/FrontPage/js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/FrontPage/js/agency.min.js"></script>
+
+</body>
+
+</html>
