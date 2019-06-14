@@ -23,6 +23,9 @@ router.get('/login',function(req,res,next){
     res.render('index');
 })
 
+router.get('/profile',function(req,res,next){
+    res.render('profile');
+})
 
 
 
