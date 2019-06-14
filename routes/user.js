@@ -98,4 +98,33 @@ router.get('/getevents/:sport',function(req,res,next){
     .catch(next)
 })
 
+
+// router.get('/getevents',function(req,res,next){
+//     eventModel.find()
+//     .exec()
+//     .then((event)=>{
+//         if(event.length>0)
+//         {
+//             res.render('home',{date:date});
+//         }
+//         else{
+//             res.send("No Events");
+//         }
+//     })
+//     .catch(next)
+// })
+
+
+
+
+
+// router.get('/', function (req, res) {
+//     productModel.find()
+//         .select("name , cost")
+//         .exec()
+//         .then(products => {
+//             res.json(products).status(200);
+//         })
+// })
+
 module.exports = router;
