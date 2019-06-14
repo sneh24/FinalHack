@@ -210,21 +210,6 @@ html, body {
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="user/register" id="register" ><span class="glyphicon glyphicon-user"></span> Sign Up</a>
           </li>
@@ -242,28 +227,38 @@ html, body {
   <div class="content">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-4">
-                <div class="card">
-                    <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                    <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
-                  </a>
-                    <div class="card-content">
-                        <h4 class="card-title">
-                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
-                          </a>
-                        </h4>
-                        <p class="">
-                            Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
-                        </p>
-                    </div>
-                    <div class="card-read-more">
-                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
-                            Join
-                        </a>
-                    </div>
-                </div>
-            </div>
+          <% user.forEach(User=>{ %>
 
+         
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <a class="img-card">
+                    <img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                  </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                    <a > <%= User.name %> 
+                          </a>
+                        </h4>
+                        <p class="">
+                            <%= User.email %> 
+                        </p>
+                        <p class="">
+                            <%= User.phoneno %> 
+                        </p>
+                        <p class="">
+                            <%= User.sport %> 
+                        </p>
+                    </div>
+                    <div class="card-read-more">
+                        <!-- <a href="#" class="btn btn-link btn-block">
+                            Joi
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+          <% }) %>
+<!-- 
             <div class="col-xs-12 col-sm-4">
                 <div class="card">
                     <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
@@ -368,12 +363,21 @@ html, body {
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
           </div>
         </div>
     </div>
 
-                                                            
+ 
+<!--   
+  <ul>
+  <% user.forEach(User=>{ %>
+    <p>
+      <%console.log(User.name)%>
+      <%= User.name %>
+    </p>
+  <% }) %>
+</ul> -->
 
 
     
