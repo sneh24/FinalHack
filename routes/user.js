@@ -71,9 +71,6 @@ router.post('/register',function(req,res,next){
 
 })
 
-
-
-
 //Login Handle------------------------------------------------------------------------------------
 router.post('/login', (req,res,next) => {
     passport.authenticate('user-local', {
@@ -85,7 +82,7 @@ router.post('/login', (req,res,next) => {
 
 
 
-//After Login page
+//After Login page.........................................................................
 router.get('/home',ensureAuthenticated, (req,res) => {
     eventModel.find({})
     .then((event)=>{
@@ -95,7 +92,7 @@ router.get('/home',ensureAuthenticated, (req,res) => {
     
 })
 
-//Logout Handle
+//Logout Handle---------------------------------------------------------------------------------
 router.get('/logout', (req,res) => {
     req.logout();
     req.flash('success_msg', 'You are logged out');
@@ -135,6 +132,14 @@ router.get('/alluser',function(req,res,next){
     
     }))
     .catch(next);
+})
+
+
+
+
+//on click join button on home user page-----------------------------------------------------------
+router.get('/joinpage/:eventid',function(req,res,next){
+    res.render('join');
 })
 
 
