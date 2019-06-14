@@ -13,7 +13,7 @@ const passport = require('passport');
 const port = 3000;
 
 require('./config/passport')(passport);
-//require('./config/passport2')(passport);
+//require('./config/passport').hostFunction(passport);
 
 const db = require('./config/keys').MongoURI;
 
