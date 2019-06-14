@@ -76,6 +76,10 @@ router.get('/home',ensureAuthenticated, (req,res) => {
     res.render('host_page');
 })
 
+router.get('/home/event',ensureAuthenticated, (req,res) => {
+    res.render('new_event');
+})
+
 //Logout Handle
 router.get('/logout', (req,res) => {
     req.logout();
