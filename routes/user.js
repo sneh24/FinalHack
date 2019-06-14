@@ -56,12 +56,13 @@ router.post('/register',function(req,res,next){
    
     userModel.find({email:req.body.email},(err,users)=>{
         if(users.length>0){
-            res.send("Account already exists").status(400);
+            req.flash('error_msg', 'Account Already Exists');
+                res.redirect('/user/register');
         }
         else{
             newUser.save()
             .then(users => {
-                
+                req.flash('success_msg', 'Registration Successfull');
                 res.redirect('/user/login');
             })
             .catch(next);
@@ -70,9 +71,9 @@ router.post('/register',function(req,res,next){
 
 })
 
-//Login Handle
+//Login Handle------------------------------------------------------------------------------------
 router.post('/login', (req,res,next) => {
-    passport.authenticate('local', {
+    passport.authenticate('user-local', {
         successRedirect: '/user/home',
         failueRedirect: '/user/login',
         failueFlash: true
@@ -89,6 +90,7 @@ router.get('/home',ensureAuthenticated, (req,res) => {
 //Logout Handle
 router.get('/logout', (req,res) => {
     req.logout();
+    req.flash('success_msg', 'You are logged out');
     res.redirect('/user/login');
 })
 
@@ -107,5 +109,34 @@ router.get('/getevents/:sport',function(req,res,next){
     })
     .catch(next)
 })
+
+
+// router.get('/getevents',function(req,res,next){
+//     eventModel.find()
+//     .exec()
+//     .then((event)=>{
+//         if(event.length>0)
+//         {
+//             res.render('home',{date:date});
+//         }
+//         else{
+//             res.send("No Events");
+//         }
+//     })
+//     .catch(next)
+// })
+
+
+
+
+
+// router.get('/', function (req, res) {
+//     productModel.find()
+//         .select("name , cost")
+//         .exec()
+//         .then(products => {
+//             res.json(products).status(200);
+//         })
+// })
 
 module.exports = router;

@@ -8,10 +8,12 @@ const session = require('express-session');
 const passport = require('passport');
 
 
+
+
 const port = 3000;
 
 require('./config/passport')(passport);
-
+//require('./config/passport').hostFunction(passport);
 
 const db = require('./config/keys').MongoURI;
 
@@ -26,6 +28,7 @@ const placeRoutes = require('./routes/place');
 const userRoutes = require('./routes/user');
 const homeRoutes = require('./routes/homeRoutes');
 const hostRoutes = require('./routes/host');
+const eventRoutes = require('./routes/event');
 
 
 
@@ -47,18 +50,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 //Global Vars
-// app.use((req,res,next) => {
-//     res.locals.success_msg = req.flash('success_msg');
-//     res.locals.error_msg = req.flash('error_msg');
-// })
+app.use((req,res,next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+})
 
 
 app.use('/homepage',homeRoutes);
 app.use('/place',placeRoutes);
 app.use('/user',userRoutes);
 app.use('/host',hostRoutes);
-
+app.use('/event',eventRoutes);
 
 
 //error handling

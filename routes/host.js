@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
+const { ensureAuthenticated } = require('../config/auth');
 
 //import local modules----------------------------------------------------------
 const hostModel = require('../models/hostModel');
@@ -48,20 +50,50 @@ router.post('/register',function(req,res,next){
             res.send("Account already exists").status(400);
         }
         else{
-            newHost.save();
-            res.send("Account created").status(201);
+            newHost.save()
+            .then(hosts => {
+                
+                res.redirect('/host/login');
+            })
+            .catch(next);
         }
     })
     .catch(next);
 })
 
+//Login Handle
+router.post('/login', (req,res,next) => {
+    passport.authenticate('host-local', {
+        successRedirect: '/host/home',
+        failueRedirect: '/host/login',
+        failueFlash: true
+    })(req,res,next);
+});
 
+
+//After Login page
+router.get('/home',ensureAuthenticated, (req,res) => {
+    console.log(req.user);
+    res.render('host_page',{host:req.user});
+})
+
+router.get('/home/event',ensureAuthenticated, (req,res) => {
+    res.render('new_event');
+})
+
+//Logout Handle
+router.get('/logout', (req,res) => {
+    req.logout();
+    res.redirect('/host/login');
+})
 
 //host adding events ---------------------------------------------------------------
-router.post('addevent/:hostid',function(req,res,next){
+router.post('/addevent/:hostid',function(req,res,next){
+    console.log(req.body);
+    console.log("in post")
     const newEvent = new eventModel({
         _id : new mongoose.Types.ObjectId(),
-        host: req.params.hostid,
+        host: req.body.host,
         place: req.body.place,
         sport: req.body.sport,
         date:req.body.date,
@@ -78,8 +110,29 @@ router.post('addevent/:hostid',function(req,res,next){
         }
         else{
             newEvent.save()
-            .then(()=>{
-                res.send("event added");
+            // .exec()
+            .then((newEvent)=>{
+                console.log(newEvent);
+                console.log("saved new event")
+                hostModel.find({_id:newEvent.host})
+                .exec()
+                .then((host)=>{
+
+                    console.log(host);
+                    console.log("found host");
+                    console.log(host.id);
+                    console.log(req.params.hostid)
+
+                    hostModel.findByIdAndUpdate({_id:req.params.hostid},{ "$push": { "Curevent": newEvent }})
+                    .then(()=>{
+                        console.log("inside host");
+                        hostModel.findOne({_id:req.params.hostid})
+                        .exec()
+                        .then((host1)=>{
+                            res.send(host1);
+                        })
+                    })
+                })
             })
             .catch(next);
 
@@ -87,6 +140,32 @@ router.post('addevent/:hostid',function(req,res,next){
     })
     .catch(next);
 })
+
+
+
+
+
+//get the list of all host------------------------------------------------------------------
+router.get('/allhost',function(req,res,next){
+    hostModel.find({})
+    .exec()
+    .then((host=>{
+         res.send(host);
+    
+    }))
+    .catch(next);
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;
