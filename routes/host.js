@@ -73,12 +73,13 @@ router.post('/login', (req,res,next) => {
 
 //After Login page
 router.get('/home',ensureAuthenticated, (req,res) => {
-    console.log(req.user);
+    // console.log(req.user);
     res.render('host_page',{host:req.user});
 })
 
 router.get('/home/event',ensureAuthenticated, (req,res) => {
-    res.render('new_event');
+
+    res.render('new_event',{host:req.user});
 })
 
 //Logout Handle
