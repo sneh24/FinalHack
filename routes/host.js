@@ -78,7 +78,7 @@ router.get('/home',ensureAuthenticated, (req,res) => {
     eventModel.find({})
     .then((event)=>{
         //console.log(event);
-        res.render('host_page',{host:req.user,events:event}).status(200);
+        res.render('host_page',{host:req.host,events:event}).status(200);
     })
     
 })
