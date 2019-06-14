@@ -47,7 +47,8 @@ router.post('/register',function(req,res,next){
     .exec()
     .then(hosts=>{
         if(hosts.length>0){
-            res.send("Account already exists").status(400);
+            req.flash('error_msg', 'Account Already Exists');
+                res.redirect('/host/register');
         }
         else{
             newHost.save()
