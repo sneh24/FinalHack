@@ -73,12 +73,18 @@ router.post('/login', (req,res,next) => {
 
 //After Login page
 router.get('/home',ensureAuthenticated, (req,res) => {
-    console.log(req.user);
-    res.render('host_page',{host:req.user});
+    // console.log(req.user)
+    eventModel.find({})
+    .then((event)=>{
+        //console.log(event);
+        res.render('host_page',{host:req.user,events:event}).status(200);
+    })
+    
 })
 
 router.get('/home/event',ensureAuthenticated, (req,res) => {
-    res.render('new_event');
+
+    res.render('new_event',{host:req.user});
 })
 
 //Logout Handle
@@ -93,12 +99,12 @@ router.post('/addevent/:hostid',function(req,res,next){
     console.log("in post")
     const newEvent = new eventModel({
         _id : new mongoose.Types.ObjectId(),
-        host: req.body.host,
+        host: req.params.hostid,
         place: req.body.place,
         sport: req.body.sport,
         date:req.body.date,
         capacity:req.body.capacity,
-        count:req.body.count
+        count:0
     })
 
     eventModel.find({date:req.body.date,place:req.body.place,sport:req.body.sport})
@@ -129,7 +135,12 @@ router.post('/addevent/:hostid',function(req,res,next){
                         hostModel.findOne({_id:req.params.hostid})
                         .exec()
                         .then((host1)=>{
-                            res.send(host1);
+                            eventModel.find({})
+                            .then((event)=>{
+                                //console.log(event);
+                                res.render('host_page',{events:event}).status(200);
+                            })
+                            
                         })
                     })
                 })
