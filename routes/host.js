@@ -3,7 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
-const { ensureAuthenticated } = require('../config/auth');
+const { ensureAuthenticated } = require('../config/authhost');
 
 //import local modules----------------------------------------------------------
 const hostModel = require('../models/hostModel');
@@ -90,6 +90,7 @@ router.get('/home/event',ensureAuthenticated, (req,res) => {
 //Logout Handle
 router.get('/logout', (req,res) => {
     req.logout();
+    req.flash('success_msg', 'You are logged out');
     res.redirect('/host/login');
 })
 

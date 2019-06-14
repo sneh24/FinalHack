@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
-const { ensureAuthenticated } = require('../config/auth');
+const { ensureAuthenticated } = require('../config/authuser');
 
 const userModel = require('../models/userModel');
 const eventModel = require('../models/eventsModel');
