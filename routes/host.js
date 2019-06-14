@@ -129,7 +129,7 @@ router.post('/addevent/:hostid',function(req,res,next){
                         hostModel.findOne({_id:req.params.hostid})
                         .exec()
                         .then((host1)=>{
-                            res.send(host1);
+                            res.render('host_page').status(200);
                         })
                     })
                 })
