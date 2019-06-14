@@ -46,12 +46,13 @@ router.post('/register',function(req,res,next){
    
     userModel.find({email:req.body.email},(err,users)=>{
         if(users.length>0){
-            res.send("Account already exists").status(400);
+            req.flash('error_msg', 'Account Already Exists');
+                res.redirect('/user/register');
         }
         else{
             newUser.save()
             .then(users => {
-                
+                req.flash('success_msg', 'Registration Successfull');
                 res.redirect('/user/login');
             })
             .catch(next);
@@ -79,6 +80,7 @@ router.get('/home',ensureAuthenticated, (req,res) => {
 //Logout Handle
 router.get('/logout', (req,res) => {
     req.logout();
+    req.flash('success_msg', 'You are logged out');
     res.redirect('/user/login');
 })
 
