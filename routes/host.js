@@ -83,7 +83,7 @@ router.get('/logout', (req,res) => {
 })
 
 //host adding events ---------------------------------------------------------------
-router.post('/addevent',function(req,res,next){
+router.post('/addevent/:hostid',function(req,res,next){
     console.log(req.body);
     console.log("in post")
     const newEvent = new eventModel({
@@ -115,11 +115,13 @@ router.post('/addevent',function(req,res,next){
 
                     console.log(host);
                     console.log("found host");
+                    console.log(host.id);
+                    console.log(req.params.hostid)
 
-                    hostModel.findByIdAndUpdate({_id:host._id},{curevent:host.curevent.push(newEvent)})
+                    hostModel.findByIdAndUpdate({_id:req.params.hostid},{ "$push": { "Curevent": newEvent }})
                     .then(()=>{
                         console.log("inside host");
-                        hostModel.findOne({_id:host._id})
+                        hostModel.findOne({_id:req.params.hostid})
                         .exec()
                         .then((host1)=>{
                             res.send(host1);
