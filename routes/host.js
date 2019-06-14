@@ -83,10 +83,12 @@ router.get('/logout', (req,res) => {
 })
 
 //host adding events ---------------------------------------------------------------
-router.post('addevent/:hostid',function(req,res,next){
+router.post('/addevent',function(req,res,next){
+    console.log(req.body);
+    console.log("in post")
     const newEvent = new eventModel({
         _id : new mongoose.Types.ObjectId(),
-        host: req.params.hostid,
+        host: req.body.host,
         place: req.body.place,
         sport: req.body.sport,
         date:req.body.date,
@@ -103,8 +105,27 @@ router.post('addevent/:hostid',function(req,res,next){
         }
         else{
             newEvent.save()
-            .then(()=>{
-                res.send("event added");
+            // .exec()
+            .then((newEvent)=>{
+                console.log(newEvent);
+                console.log("saved new event")
+                hostModel.find({_id:newEvent.host})
+                .exec()
+                .then((host)=>{
+
+                    console.log(host);
+                    console.log("found host");
+
+                    hostModel.findByIdAndUpdate({_id:host._id},{curevent:host.curevent.push(newEvent)})
+                    .then(()=>{
+                        console.log("inside host");
+                        hostModel.findOne({_id:host._id})
+                        .exec()
+                        .then((host1)=>{
+                            res.send(host1);
+                        })
+                    })
+                })
             })
             .catch(next);
 
@@ -112,6 +133,32 @@ router.post('addevent/:hostid',function(req,res,next){
     })
     .catch(next);
 })
+
+
+
+
+
+//get the list of all host------------------------------------------------------------------
+router.get('/allhost',function(req,res,next){
+    hostModel.find({})
+    .exec()
+    .then((host=>{
+         res.send(host);
+    
+    }))
+    .catch(next);
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

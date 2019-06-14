@@ -28,6 +28,7 @@ const placeRoutes = require('./routes/place');
 const userRoutes = require('./routes/user');
 const homeRoutes = require('./routes/homeRoutes');
 const hostRoutes = require('./routes/host');
+const eventRoutes = require('./routes/event');
 
 
 
@@ -61,7 +62,7 @@ app.use('/homepage',homeRoutes);
 app.use('/place',placeRoutes);
 app.use('/user',userRoutes);
 app.use('/host',hostRoutes);
-
+app.use('/event',eventRoutes);
 
 
 //error handling
