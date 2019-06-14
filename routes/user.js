@@ -139,7 +139,12 @@ router.get('/alluser',function(req,res,next){
 
 //on click join button on home user page-----------------------------------------------------------
 router.get('/joinpage/:eventid',function(req,res,next){
-    res.render('join');
+    eventModel.find({_id:req.params.eventid})
+    .then((event)=>{
+        console.log(event);
+        res.render('join',{events:event});
+    })
+    
 })
 
 
