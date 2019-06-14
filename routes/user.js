@@ -63,7 +63,7 @@ router.post('/register',function(req,res,next){
 
 //Login Handle------------------------------------------------------------------------------------
 router.post('/login', (req,res,next) => {
-    passport.authenticate('local', {
+    passport.authenticate('user-local', {
         successRedirect: '/user/home',
         failueRedirect: '/user/login',
         failueFlash: true

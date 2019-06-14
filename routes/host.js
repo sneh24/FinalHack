@@ -63,7 +63,7 @@ router.post('/register',function(req,res,next){
 
 //Login Handle
 router.post('/login', (req,res,next) => {
-    passport.authenticate('local', {
+    passport.authenticate('host-local', {
         successRedirect: '/host/home',
         failueRedirect: '/host/login',
         failueFlash: true
@@ -73,7 +73,7 @@ router.post('/login', (req,res,next) => {
 
 //After Login page
 router.get('/home',ensureAuthenticated, (req,res) => {
-    res.render('user_page');
+    res.render('host_page');
 })
 
 //Logout Handle
