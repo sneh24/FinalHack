@@ -9,33 +9,33 @@ const userModel = require('../models/userModel');
 
 
 
-// //get request
-// router.get('/',function(req,res,next){
-//     eventModel.find({})
-//     .exec()
-//     .then((event)=>{
-//         res.render('home',{events:event});
-//     })
-//     .catch(next);
-// })
-
-
-
+//get request
 router.get('/',function(req,res,next){
-    userModel.find()
+    eventModel.find({})
     .exec()
-    .then((user)=>{
-        if(user.length>0)
-        {
-           
-            res.render('home',{user:user});
-        }
-        else{
-            res.send("No Events");
-        }
+    .then((event)=>{
+        res.render('home',{events:event});
     })
-    .catch(next)
+    .catch(next);
 })
+
+
+
+// router.get('/',function(req,res,next){
+//     userModel.find()
+//     .exec()
+//     .then((user)=>{
+//         if(user.length>0)
+//         {
+           
+//             res.render('home',{user:user});
+//         }
+//         else{
+//             res.send("No Events");
+//         }
+//     })
+//     .catch(next)
+// })
 
 
 module.exports = router;
