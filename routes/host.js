@@ -91,14 +91,15 @@ router.get('/logout', (req,res) => {
 router.post('/addevent/:hostid',function(req,res,next){
     console.log(req.body);
     console.log("in post")
+    placeModel.find({_id:req.body.place})
     const newEvent = new eventModel({
         _id : new mongoose.Types.ObjectId(),
-        host: req.body.host,
+        host: req.params.hostid,
         place: req.body.place,
         sport: req.body.sport,
         date:req.body.date,
         capacity:req.body.capacity,
-        count:req.body.count
+        count:0
     })
 
     eventModel.find({date:req.body.date,place:req.body.place,sport:req.body.sport})
