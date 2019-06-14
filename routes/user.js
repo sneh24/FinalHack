@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
-const { ensureAuthenticated } = require('../config/auth');
+const { ensureAuthenticated } = require('../config/authuser');
 
 const userModel = require('../models/userModel');
 const eventModel = require('../models/eventsModel');
@@ -28,6 +28,16 @@ router.get('/login',function(req,res,next){
 //user homepage-----------------------------------------------------------------------------
 router.get('/',function(req,res,next){
     res.send("user").status(200);
+})
+
+// router.get('/register',function(req,res,next){
+//     res.render('Login_v6/register.ejs').status(200);
+
+// })
+
+router.get('/login',function(req,res,next){
+    res.render('index').status(200);
+
 })
 
 
