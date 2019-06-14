@@ -101,6 +101,27 @@ router.get('/getevents/:sport',function(req,res,next){
 })
 
 
+
+
+
+
+
+
+
+//get the list of all user------------------------------------------------------------------
+router.get('/alluser',function(req,res,next){
+    hostModel.find({})
+    .exec()
+    .then((user=>{
+         res.send(user);
+    
+    }))
+    .catch(next);
+})
+
+
+
+
 // router.get('/getevents',function(req,res,next){
 //     eventModel.find()
 //     .exec()
