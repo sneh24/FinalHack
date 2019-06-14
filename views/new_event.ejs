@@ -40,15 +40,18 @@
   </nav>
 
   
+  
+ 
+  
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form" method="post" action="/host/register">
+					<form class="login100-form validate-form" method="post" action="/host/addevent/<%= host._id %>">
 					<span class="login100-form-title p-b-70">
 						Add Event
 					</span>
 					
-					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter sport">
+					<!-- <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter sport">
             <div class="dropdown">
                 <button id="dLabel" class="dropdown-select input100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Select Sport
@@ -67,9 +70,9 @@
                   <li>&nbsp&nbsp  Rugby</li>
                 </ul>
               </div>
-          </div>
+          </div> -->
                     
-                    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter location">
+                    <!-- <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter location">
                         <div class="dropdown">
                             <button id="dLabel" class="dropdown-select input100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Select Location
@@ -88,7 +91,20 @@
                           </div>
                           
                     </div>
-                      
+					   -->
+					   
+
+					   <div class="wrap-input100 validate-input m-b-50" data-validate="Enter sport">
+						<input class="input100" type="text" name="sport">
+						<span class="focus-input100" data-placeholder="Sport"></span>
+                    </div>
+
+
+					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter place">
+						<input class="input100" type="text" name="place">
+						<span class="focus-input100" data-placeholder="Place"></span>
+                    </div>
+
 
                     <div class="wrap-input100 validate-input m-b-50" data-validate="Enter phone no">
 						<input class="input100" type="date" name="date">
@@ -102,7 +118,7 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="submit" value="Submit">
 							ADD EVENT
 						</button>
 					</div>
