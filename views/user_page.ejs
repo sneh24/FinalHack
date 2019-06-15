@@ -298,7 +298,7 @@ html, body {
   </nav>
   <br><br><br><br>
   <!-- <video class="playo_video hidden-xs" autoplay="" loop="" muted="" width="100%"><source src="https://playo-website.imgix.net/video/video-720.mp4" type="video/mp4"></video> -->
-  </br></br></br></br></br></br>
+ 
 <!-- <div></br></br></br></div> -->
 
 
@@ -384,10 +384,10 @@ html, body {
                       
 
                    <% if(flag==1){%>
-                    <center><strong style="">Joined</strong></center>
+                    <center><a style="color:green" class="btn btn-link btn-block">Joined</a></center>
                     
                  <%}else if(full ==1){%>
-                  <center><strong style="">full</strong></center>
+                  <center><a style="color:red;" class="btn btn-link btn-block">Full</a></center>
                 <% }else {%>
                   <a href="/user/joinpage/<%=Event._id%>" class="btn btn-link btn-block">
                     Join
