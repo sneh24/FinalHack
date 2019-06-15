@@ -22,6 +22,8 @@
 	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+	<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -32,8 +34,8 @@
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 	  <div class="navbar-header">
-		<a class="navbar-brand" href="/homepage"><b>MatchIT</b></a>
-	  </div>
+			<a class="navbar-brand" href="/homepage" style="font-family:Kaushan Script; font-size:30px;"><b>MatchIT</b></a>
+		</div>
 	  <ul class="nav navbar-nav">
 	  </ul>
 	</div>
@@ -49,6 +51,7 @@
 					<form class="login100-form validate-form" method="post" action="/host/addevent/<%= host._id %>">
 					<span class="login100-form-title p-b-70">
 						Add Event
+					</br></br>
 					</span>
 					
 					<!-- <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter sport">
@@ -95,20 +98,53 @@
 					   
 
 					   <div class="wrap-input100 validate-input m-b-50" data-validate="Enter sport">
-						<input class="input100" type="text" name="sport">
-						<span class="focus-input100" data-placeholder="Sport"></span>
-                    </div>
+						<!-- <input class="input100" type="text" name="sport">
+						<span class="focus-input100" data-placeholder="Sport"></span> -->
+						<select class="input100" type="text" name="sport" >
+								<option value="">Sport</option>
+								<option value="Football">Football</option>
+								<option value="Cricket">Cricket</option>
+								<option value="Volleyball">Volleyball</option>
+								<option value="Basketball">Basketball</option>
+								<option value="Badminton">Badminton</option>
+								<option value="Tennis">Tennis</option>
+								<option value="Kabaddi">Kabaddi</option>
+								<option value="Table Tennis">Table Tennis</option>
+								<option value="Rugby">Rugby</option>
+								<option value="Hockey">Hockey</option>
+							  </select>
+					</div>
+					
 
 
+
+					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter sport">
+							<!-- <input class="input100" type="text" name="sport">
+							<span class="focus-input100" data-placeholder="Sport"></span> -->
+							<select class="input100" type="text" name="place" >
+									<option value="">Place</option>
+									<option value="Marathahali">Marathahali</option>
+									<option value="BTM Layout">BTM Layout</option>
+									<option value="Domlur">Domlur</option>
+									<option value="Jayanagar">Jayanagar</option>
+									<option value="Kormangala">Kormangala</option>
+									<option value="Whitefield">Whitefield</option>
+									<option value="HSR Layout">HSR Layout</option>
+									
+								  </select>
+						</div>
+
+<!-- 
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter place">
 						<input class="input100" type="text" name="place">
 						<span class="focus-input100" data-placeholder="Place"></span>
-                    </div>
+                    </div> -->
 
 
                     <div class="wrap-input100 validate-input m-b-50" data-validate="Enter phone no">
-						<input class="input100" type="date" name="date">
-						<span class="focus-input100" data-placeholder="Date"></span>
+				
+						<input class="input100" type="datetime-local" name="date">
+						<span class="focus-input100" data-placeholder="Date and Time"></span>
                     </div>
 
                    
