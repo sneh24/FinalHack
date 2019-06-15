@@ -349,12 +349,16 @@ img {
           <br>
           <center><h2>Events Joined</h2></center>
           <%events.forEach((event)=>{%>
+            <%let d= new Date()%>
            <% event.user.forEach((eventUser)=>{%>
               <%if(JSON.stringify(eventUser)==JSON.stringify(user._id)){%>
                 <center><div > 
                   <p style="font-size: 20px"><%=event.place%>
                   <%=event.sport%>
                   <%=event.date%></p>
+                  <%if(event.date<d){%>
+                      <a href="/user/review/<%=event._id%>" ><button>Post Your Review</button></a>
+                  <%}%>
                 </div></center>
              <% }})})%>
              <br>

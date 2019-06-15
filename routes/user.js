@@ -9,6 +9,7 @@ const stripe = require('stripe')('sk_test_09bnhJ5rGUDFeQjMmQ2c0QpD00fjpjHpbe');
 
 const userModel = require('../models/userModel');
 const eventModel = require('../models/eventsModel');
+const hostModel = require('../models/hostModel');
 
 
 
@@ -23,7 +24,10 @@ router.get('/login',function(req,res,next){
     res.render('index');
 })
 
-router.get('/profile',function(req,res,next){
+
+//profile get----------------------------------------------------------------------------------
+
+router.get('/profile',ensureAuthenticated,function(req,res,next){
     console.log(req.user);
     eventModel.find({})
     .then((event)=>{
@@ -233,6 +237,44 @@ router.post('/charge/:eventid',ensureAuthenticated,function(req,res){
 
 //after successfull join------------------------------------------------------------------------
 
+
+
+
+
+
+
+//go to post yourr review page--------------------------------------------------------------------
+router.get('/review/:eventid',ensureAuthenticated,function(req,res,next){
+    eventModel.findOne({_id:req.params.eventid})
+    .then((event)=>{
+        res.render('review',{event:event});
+    })
+    
+})
+
+
+
+
+//post the review inside host--------------------------------------------------------------------
+router.post('/review/:eventid',ensureAuthenticated,function(req,res,next){
+    eventModel.findOne({_id:req.params.eventid})
+    .then((event)=>{
+        hostModel.findByIdAndUpdate({_id:event.host},{"$push":{review:{
+            userName:req.body.name,
+            review:req.body.review
+        }}})
+        .then(()=>{
+            hostModel.find({_id:event.host})
+            .then((host)=>{
+                eventModel.find({})
+                .then((event)=>{
+                    res.render('userProfile',{events:event,user:req.user});
+                })
+                
+            })
+        })
+    })
+})
 
 
 

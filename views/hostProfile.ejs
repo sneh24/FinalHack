@@ -311,6 +311,15 @@ img {
           <h3 class="title"><%= host.name %> </h3>
               <p class="category"><%= host.email %></p>
               <p class="category"><%= host.phoneno %></p>
+
+              <h4 class="title">REVIEWS OF HOST PAST EVENTS </h4>
+
+              <%if(host.review.length>0){%>
+                <%host.review.forEach((userReview)=>{%>
+                  <h5 class="title"><%= userReview.userName %> </h5>
+                  <p class="category"><%= userReview.review %></p> 
+                <%})%>
+              <%}%>
          
     <!-- Footer -->
     <footer class="footer">
