@@ -129,7 +129,7 @@ router.get('/getevents/:sport',ensureAuthenticated,function(req,res,next){
 
 //update request after join----------------------------------------------------------------------
 router.get('/updateJoinRequest/:eventid',ensureAuthenticated,function(req,res,next){
-    console.log(req.user);
+    //console.log(req.user);
     eventModel.findByIdAndUpdate({_id:req.params.eventid},{ "$push": { "user": req.user }})
     .exec()
     .then(()=>{
@@ -137,7 +137,7 @@ router.get('/updateJoinRequest/:eventid',ensureAuthenticated,function(req,res,ne
         .then((event)=>{
             eventModel.findByIdAndUpdate({_id:req.params.eventid},{"count":(event.count+1)})
             .then(()=>{
-                console.log("after 2nd update")
+               // console.log("after 2nd update")
                 eventModel.find({_id:req.params.eventid})
                 .then((event)=>{
                     console.log(event);
@@ -184,11 +184,10 @@ router.get('/alluser',function(req,res,next){
 
 //on click join button on home user page-----------------------------------------------------------
 router.get('/joinpage/:eventid',ensureAuthenticated,function(req,res,next){
-     eventModel.find({_id:req.params.eventid})
+     eventModel.findOne({_id:req.params.eventid})
      .then((event)=>{
-         console.log("Inside then");
-        console.log(event);
-        res.render('join',{events:event});
+        //console.log(event);
+        res.render('join',{eventid:req.params.eventid,events});
     })
     
 })
