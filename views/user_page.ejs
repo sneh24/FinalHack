@@ -326,13 +326,23 @@ html, body {
                       </p>
                   </div>
                   <div class="card-read-more">
-                      <%console.log(Event.user[0])%>
+                    <%console.log("ALL THE EVENT USERS")%>
+                      <%console.log(Event.user._id)%>
+                      <%console.log("SEESION USER")%>
+                      <%console.log(user._id)%>
+                      
                       <%let flag=0;%>
+                      <%console.log(flag)%>
                       <%Event.user.forEach((eventUser)=>{%>
-                       <% if(eventUser._id==user._id)%>
-                        <%  flag=1;%>
+                        <%console.log("USER FOr------")%>
+                        <%console.log(typeof eventUser)%>
+                        <%console.log(typeof user._id)%>
+                       <% if(JSON.stringify(eventUser)==JSON.stringify(user._id)){%>
+                        <%console.log(eventUser)%>
+                        <%console.log(user._id)%>
+                        <%  flag=1;}%>
                      <% })%>
-
+                        <%console.log(flag)%>
                       <%if(flag==0){%>
                         <a href="/user/joinpage/<%=Event._id%>" class="btn btn-link btn-block">
                           Join

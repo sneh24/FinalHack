@@ -90,10 +90,13 @@ router.post('/login', (req,res,next) => {
 
 //After Login page.........................................................................
 router.get('/home',ensureAuthenticated, (req,res) => {
-    console.log(req.user);
+    //console.log(req.user);
     eventModel.find({})
     .then((event)=>{
-       // console.log(event);
+        console.log("before the login page");
+        console.log(event);
+        console.log("current user")
+        console.log(req.user);
         res.render('user_page',{events:event,user:req.user});
     })
     
@@ -130,7 +133,7 @@ router.get('/getevents/:sport',ensureAuthenticated,function(req,res,next){
 //update request after join----------------------------------------------------------------------
 router.get('/updateJoinRequest/:eventid',ensureAuthenticated,function(req,res,next){
     console.log(req.user);
-    eventModel.findByIdAndUpdate({_id:req.params.eventid},{ "$push": { "user": req.user }})
+    eventModel.findByIdAndUpdate({_id:req.params.eventid},{ "$push": { "user": req.user._id }})
     .exec()
     .then(()=>{
         eventModel.findOne({_id:req.params.eventid})
@@ -142,14 +145,19 @@ router.get('/updateJoinRequest/:eventid',ensureAuthenticated,function(req,res,ne
                 .then((event)=>{
                     console.log(event);
                     console.log("pushing event to user");
-                    userModel.findByIdAndUpdate({_id:req.user._id},{"$push": { "Curevent": event }})
+                    console.log(event._id);
+                    userModel.findByIdAndUpdate({_id:req.user._id},{"$push": { "Curevent": event._id }})
                     .then(()=>{
                         userModel.find({_id:req.user._id})
                         .then((updatedUser)=>{
                             console.log(updatedUser);
                             eventModel.find({})
                             .then((event)=>{
-                                res.render('user_page',{events:event,user:req.user});                            })
+                                console.log("befoe=r user page")
+                                console.log(event)
+                                console.log(req.user)
+                                res.render('user_page',{events:event,user:req.user});
+                            })
                         })
                     })
                 })
