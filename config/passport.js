@@ -61,7 +61,7 @@ module.exports =  function(passport) {
         })
     );
     passport.serializeUser(function (userObject, done) {
-        // userObject could be a Model1 or a Model2... or Model3, Model4, etc.
+        
         let userGroup = "user";
         let userPrototype =  Object.getPrototypeOf(userObject);
     
@@ -80,13 +80,13 @@ module.exports =  function(passport) {
         if (sessionConstructor.userGroup == 'user') {
           User.findOne({
               _id: sessionConstructor.userId
-          }, '-localStrategy.password', function (err, user) { // When using string syntax, prefixing a path with - will flag that path as excluded.
+          }, '-localStrategy.password', function (err, user) {
               done(err, user);
           });
         } else if (sessionConstructor.userGroup == 'host') {
           Host.findOne({
               _id: sessionConstructor.userId
-          }, '-localStrategy.password', function (err, user) { // When using string syntax, prefixing a path with - will flag that path as excluded.
+          }, '-localStrategy.password', function (err, user) { 
               done(err, user);
           });
         } 

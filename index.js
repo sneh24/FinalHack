@@ -42,7 +42,7 @@ app.use(flash());
 
 //Express session middleware
 app.use(session({
-    secret: 'secret',
+    secret: 'batman123',
     resave: true,
     saveUninitialized: true
 }));
