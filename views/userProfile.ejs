@@ -345,6 +345,18 @@ img {
         </div>
         </div>
 
+        <div>
+          <%events.forEach((event)=>{%>
+           <% event.user.forEach((eventUser)=>{%>
+              <%if(JSON.stringify(eventUser)==JSON.stringify(user._id)){%>
+                <div> 
+                  <%=event.place%>
+                  <%=event.sport%>
+                  <%=event.date%>
+                </div>
+             <% }})})%>
+        </div>
+
 
         
     <!-- Footer -->
