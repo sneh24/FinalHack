@@ -272,21 +272,22 @@ html, body {
                       
                         
                 </a>
-                  <div class="card-content">
-                      <h4 class="card-title">
-                  <a > <%= Event.sport %> 
-                        </a>
-                      </h4>
-                      <p class="">
-                          <%= Event.place %> 
-                      </p>
-                      <p class="">
-                          <%= Event.date %> 
-                      </p>
-                      <p class="">
-                          <%= Event.count %> / <%= Event.capacity %> 
-                      </p>
-                  </div>
+                <div class="card-content"><center>
+                    <h4 class="card-title" style="color:#007bff;">
+                <a > <%= Event.sport %> 
+                      </a>
+                    </h4>
+                    <h6 class="">
+                        <%= Event.place %> 
+                    </h6>
+                    <p class="">
+                        <%= Event.date %> 
+                    </p>
+                    <h5 class="">
+                        <%= Event.count %> / <%= Event.capacity %> 
+                    </h5>
+                  </center>
+                </div>
                   <div class="card-read-more">
                       <!-- <a href="#" class="btn btn-link btn-block">
                           Join
