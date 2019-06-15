@@ -241,6 +241,102 @@ html, body {
 
   <div></br></br></br></br></br></br></div>
 
+  <% events.forEach(Event=>{ %>
+
+
+  <div class="content">
+    <div class="container">
+        <div class="row">
+         
+  
+         
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <a class="img-card">
+  
+  
+  
+  
+                        <% if (Event.sport == "Football") { %>
+                          <img src="https://media.gettyimages.com/photos/fireworks-are-thrown-onto-the-pitch-by-the-galatasaray-fans-during-picture-id458399724?s=2048x2048" />
+                        <% } %>
+                        <% if (Event.sport == "Kabbadil"  || Event.sport == "Kabbadi") { %>
+                            <img src="https://www.mykhel.com/images/2017-08/photos-pro-kabaddi-league-pkl-2017-5.jpg" />
+                        <% } %>
+                        <% if (Event.sport == "Volleyball") { %>
+                          <img src="https://media.gettyimages.com/photos/diane-zolnercikova-of-the-czech-republic-dives-for-a-ball-during-day-picture-id473069890?s=2048x2048" />
+                        <% } %>
+                        <% if (Event.sport == "Table Tennisl") { %>
+                          <img src="https://media.gettyimages.com/photos/ning-ding-of-china-competes-during-the-womens-singles-table-tennis-picture-id149571838?s=2048x2048" />
+                        <% } %>
+                        <!-- <% if (Event.sport == "Table Tennisl") { %>
+                          <img src="https://media.gettyimages.com/photos/fireworks-are-thrown-onto-the-pitch-by-the-galatasaray-fans-during-picture-id458399724?s=2048x2048" />
+                        <% } %> -->
+  
+  
+  
+  
+  
+                        
+  
+  
+                          
+                  </a>
+
+
+                  
+                    <div class="card-content">
+                        
+                    </div>
+                    <div class="card-read-more">
+                        <!-- <a href="#" class="btn btn-link btn-block">
+                            Join
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-xs-12 col-sm-8">
+  
+
+            <h4 class="card-title">
+                <a > <%= Event.sport %> 
+                      </a>
+                    </h4>
+                    <!-- <p class="">
+                        <%= Event.place %> 
+                    </p> -->
+                    <p class="">
+                        <%= Event.date %> 
+                    </p>
+                    <p class="">
+                        <%= Event.count %> / <%= Event.capacity %> 
+                    </p>
+                    
+          </div>
+       
+
+
+
+
+  
+  
+          </div>
+        </div>
+    </div>
+
+
+         
+  
+  
+<% }) %>
+
+
+
+<center>
+
   <form action="/user/charge" method="POST">
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -253,5 +349,6 @@ html, body {
       data-currency="usd">
     </script>
   </form>
+</center>
 
   </body>
