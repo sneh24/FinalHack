@@ -27,8 +27,9 @@ router.get('/register',function(req,res,next){
     res.render('hostRegister');
 })
 
-router.get('/profile',function(req,res,next){
-    res.render('hostProfile',{host:req.host});
+router.get('/profile',ensureAuthenticated,function(req,res,next){
+    console.log(req.user);
+    res.render('hostProfile',{host:req.user});
 })
 
 
