@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>MatchIT</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+	<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
+
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+
+</head>
+    <body>  
+            <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <a class="navbar-brand" href="/homepage" style="font-family:Kaushan Script; font-size:30px;"><b>MatchIT</b></a>
+                      </div>
+                      <ul class="nav navbar-nav">
+                        <!-- <li ><a href="#">Home</a></li> -->
+                        <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a> -->
+                          <!-- <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                            <li><a href="#">Page 1-3</a></li>
+                          </ul> -->
+                        <!-- </li>
+                        <li><a href="#">Page 2</a></li> -->
+                      </ul>
+                      <!-- <ul class="nav navbar-nav navbar-right">
+                        <li><a href="./Login_v6/register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="./Login_v6/index.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                      </ul> -->
+                    </div>
+                  </nav>
+            <!-- <form action="/user/review/<%=event._id%>" method="POST">
+                Name:
+                <input type="text" name="name" placeholder="user name" >
+                <br>
+                Review:
+                <input type="textfield" name="review" placeholder="Review">
+                <br><br>
+                <button  type="submit" value="Submit">
+                        POST REVIEW
+                    </button>
+              </form>  -->
+              <div class="limiter">
+                    <div class="container-login100">
+                        <div class="wrap-login100 p-t-85 p-b-20">
+                            <form class="login100-form validate-form" method="POST" action="/user/review/<%=event._id%>">
+                                <span class="login100-form-title p-b-70">
+                                    Reviews
+                                </span>
+                                <% include ./partial/messages %>
+                                
+                               <br><br>
+            
+                                <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+                                    <input class="input100" type="text" name="review">
+                                    <span class="focus-input100" data-placeholder="Review"></span>
+                                </div>
+            
+                                <div class="container-login100-form-btn">
+                                    <button class="login100-form-btn" type="submit" value="Submit">
+                                        Post Review
+                                    </button>
+                                </div>
+                            
+                                
+                                
+                               
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            
+    </body>
+</html>

@@ -5,7 +5,8 @@ const hostSchema = mongoose.Schema({
     email : {type:String,required:true,unique:true},
     password : {type:String,required:true},
     phoneno : {type:Number,required:true},
-    Curevent : {type:Array,required:false}
+    Curevent : {type:Array,required:false},
+    review:{type:Array,required:false}
 })
 
 module.exports = mongoose.model('Host',hostSchema);
