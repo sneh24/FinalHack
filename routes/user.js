@@ -184,11 +184,12 @@ router.get('/alluser',function(req,res,next){
 
 //on click join button on home user page-----------------------------------------------------------
 router.get('/joinpage/:eventid',ensureAuthenticated,function(req,res,next){
-    // eventModel.findOne({_id:req.params.eventid})
-    // .then((event)=>{
-        //console.log(event);
-        res.render('join',{eventid:req.params.eventid});
-    //})
+     eventModel.find({_id:req.params.eventid})
+     .then((event)=>{
+         console.log("Inside then");
+        console.log(event);
+        res.render('join',{events:event});
+    })
     
 })
 
