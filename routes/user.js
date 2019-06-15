@@ -147,6 +147,9 @@ router.get('/updateJoinRequest/:eventid',ensureAuthenticated,function(req,res,ne
                         userModel.find({_id:req.user._id})
                         .then((updatedUser)=>{
                             console.log(updatedUser);
+                            eventModel.find({})
+                            .then((event)=>{
+                                res.render('user_page',{events:event,user:req.user});                            })
                         })
                     })
                 })
@@ -181,16 +184,16 @@ router.get('/alluser',function(req,res,next){
 
 //on click join button on home user page-----------------------------------------------------------
 router.get('/joinpage/:eventid',ensureAuthenticated,function(req,res,next){
-    eventModel.find({_id:req.params.eventid})
-    .then((event)=>{
+    // eventModel.findOne({_id:req.params.eventid})
+    // .then((event)=>{
         //console.log(event);
-        res.render('join',{events:event});
-    })
+        res.render('join',{eventid:req.params.eventid});
+    //})
     
 })
 
 //post for payment button and redirect to success.ejs
-router.post('/charge',ensureAuthenticated,function(req,res){
+router.post('/charge/:eventid',ensureAuthenticated,function(req,res){
     const amount=1500;
     stripe.customers.create({
         email:req.body.stripeEmail,
@@ -202,7 +205,10 @@ router.post('/charge',ensureAuthenticated,function(req,res){
         currency:'usd',
         customer:customer.id
     }))
-    .then(charge => res.render('success'))
+    .then((charge) =>{
+
+        res.render('success',{eventid:req.params.eventid})
+    } )
     // console.log(req.body)
 
 })

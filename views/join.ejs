@@ -230,7 +230,7 @@ html, body {
             </li> -->
               
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
+          <a class="nav-link js-scroll-trigger" href="/host/logout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
         </li>
           </ul>
         </div>
@@ -241,6 +241,7 @@ html, body {
 
   <div></br></br></br></br></br></br></div>
 
+<<<<<<< HEAD
   <% events.forEach(Event=>{ %>
 
 
@@ -338,6 +339,9 @@ html, body {
 <center>
 
   <form action="/user/charge" method="POST">
+=======
+  <form action="/user/charge/<%=eventid%>" method="POST">
+>>>>>>> 3f79a8ac4b99cf06c11da5ed5af66e90c9b3acf0
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="pk_test_zfkp4WJISaV5muXwstM7SBJ700FyaWrwpx"
