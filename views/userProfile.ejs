@@ -277,8 +277,46 @@ img {
     
         <div class="wrapper">
           <div class="page-header clear-filter" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image:url('https://images.unsplash.com/photo-1534158914592-062992fbe900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=775&q=80');">
-            </div>
+              <% if (user.sport == "Football") { %>
+            <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://media.gettyimages.com/photos/fireworks-are-thrown-onto-the-pitch-by-the-galatasaray-fans-during-picture-id458399724?s=2048x2048');"></div>
+           
+            <%}%>
+            <% if (user.sport == "Cricket") { %>
+              <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://atgbcentral.com/data/out/102/4833052-cricket-wallpapers.jpg');">
+              </div>
+              <%}%>
+              <% if (user.sport == "Kabaddi") { %>
+                <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://www.mykhel.com/images/2017-08/photos-pro-kabaddi-league-pkl-2017-5.jpg');">
+                </div>
+                <%}%>
+              <% if (user.sport == "Volleyball") { %>
+              <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://media.gettyimages.com/photos/maxim-mikhaylov-of-russia-spikes-the-ball-during-the-mens-qualifying-picture-id588429130?s=2048x2048');">
+              </div>
+              <%}%>
+              <% if (user.sport == "Table Tennis") { %>
+                <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://images.unsplash.com/photo-1534158914592-062992fbe900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=775&q=80');">
+                </div>
+              <%}%>
+              <% if (user.sport == "Basketball") { %>
+                <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://media.gettyimages.com/photos/ball-and-basketball-court-picture-id183256716?s=2048x2048');">
+                </div>
+                <%}%>
+              <% if (user.sport == "Badminton") { %>
+              <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://wallpapercave.com/wp/wp2302341.jpg');">
+              </div>
+              <%}%>
+              <% if (user.sport == "Tennis") { %>
+                <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://image.shutterstock.com/image-photo/tennis-ball-backgrounds-600w-294411833.jpg');">
+                </div>
+                <%}%>
+              <% if (user.sport == "Hockey") { %>
+                 <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://image.shutterstock.com/image-photo/jakarta-indonesia-august-30-2018-600w-1178637658.jpg');">
+                 </div>
+              <%}%>
+              <% if (user.sport == "Rugby") { %>
+                <div id="background1" class="page-header-image" data-parallax="true" style="background-image:url('https://www.newsday.co.zw/wp-content/uploads/2015/07/rugby_0.jpg');">
+                </div>
+             <%}%>
             <div class="container">
               <div class="photo-container">
                 <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
@@ -370,6 +408,9 @@ img {
   <!-- Custom scripts for this template -->
   <script src="/FrontPage/js/agency.min.js"></script>
 
+
+
+  
 </body>
 
 </html>
