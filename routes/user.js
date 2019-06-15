@@ -100,6 +100,8 @@ router.get('/logout', (req,res) => {
 })
 
 
+
+//get all events by sports----------------------------------------------------------------
 router.get('/getevents/:sport',function(req,res,next){
     eventModel.find({sport:req.params.sport})
     .exec()
@@ -116,6 +118,18 @@ router.get('/getevents/:sport',function(req,res,next){
 })
 
 
+
+
+// //update request after join----------------------------------------------------------------------
+// router.put('/updateJoinRequest/:eventid',function(req,res,next){
+//     eventModel.findByIdAndUpdate({_id:req.params.eventid},{ "$push": { "user": req.body.user }})
+//     .exec()
+//     .then(()=>{
+//         userModel.findByIdAndUpdate({_id:req.body.user._id},{"$push":{Curevent:eventModel.find({_id:req.params.eventid})}})
+//         res.send("added");
+//     })
+//     .catch(next);
+// })
 
 
 
@@ -141,11 +155,18 @@ router.get('/alluser',function(req,res,next){
 router.get('/joinpage/:eventid',function(req,res,next){
     eventModel.find({_id:req.params.eventid})
     .then((event)=>{
-        console.log(event);
+        //console.log(event);
         res.render('join',{events:event});
     })
     
 })
+
+
+
+
+
+
+//after successfull join------------------------------------------------------------------------
 
 
 
