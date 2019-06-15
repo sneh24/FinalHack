@@ -344,17 +344,20 @@ img {
       
         </div>
         </div>
-
-        <div>
+        
+        <div style="background-color: black; color: white">
+          <br>
+          <center><h2>Current Events</h2></center>
           <%events.forEach((event)=>{%>
            <% event.user.forEach((eventUser)=>{%>
               <%if(JSON.stringify(eventUser)==JSON.stringify(user._id)){%>
-                <div> 
-                  <%=event.place%>
+                <center><div > 
+                  <p style="font-size: 20px"><%=event.place%>
                   <%=event.sport%>
-                  <%=event.date%>
-                </div>
+                  <%=event.date%></p>
+                </div></center>
              <% }})})%>
+             <br>
         </div>
 
 
