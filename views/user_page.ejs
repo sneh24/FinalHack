@@ -318,20 +318,21 @@ html, body {
 
                         
                 </a>
-                  <div class="card-content">
-                      <h4 class="card-title">
+                  <div class="card-content">   <center>
+                      <h4 class="card-title" style="color:#007bff;">
+                     
                   <a > <%= Event.sport %> 
                         </a>
                       </h4>
-                      <p class="">
+                      <h6 class="">
                           <%= Event.place %> 
-                      </p>
+                      </h6>
                       <p class="">
                           <%= Event.date %> 
                       </p>
                       <p class="">
                           <%= Event.count %> / <%= Event.capacity %> 
-                      </p>
+                      </p></center>
                   </div>
                   <div class="card-read-more">
                     <%console.log("ALL THE EVENT USERS")%>
@@ -352,15 +353,18 @@ html, body {
                      <% })%>
                         <%console.log(flag)%>
                       <%if(flag==0){%>
-                        <a href="/user/joinpage/<%=Event._id%>" class="btn btn-link btn-block">
+                        <a href="/user/joinpage/<%=Event._id%>" class="btn btn-link btn-block" >
                           Join
                       </a>
                      <%}else{%>
-                      <center><strong style="">Joined</strong></center>
+                      <center><strong><a class="btn btn-link btn-block" style="color: red">
+                        Joined
+                    </a></strong></center>
                    <% }%>
                   </div>
               </div>
           </div>
+          
         <%} }) %>
 
         </div>
