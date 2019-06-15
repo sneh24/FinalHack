@@ -28,7 +28,7 @@ router.get('/register',function(req,res,next){
 })
 
 router.get('/profile',function(req,res,next){
-    res.render('profile');
+    res.render('hostProfile',{host:req.host});
 })
 
 
@@ -100,7 +100,7 @@ router.get('/logout', (req,res) => {
 })
 
 //host adding events ---------------------------------------------------------------
-router.post('/addevent/:hostid',function(req,res,next){
+router.post('/addevent/:hostid',ensureAuthenticated,function(req,res,next){
     console.log(req.body);
     console.log("in post")
     const newEvent = new eventModel({
@@ -163,7 +163,7 @@ router.post('/addevent/:hostid',function(req,res,next){
 
 
 //get the list of all host------------------------------------------------------------------
-router.get('/allhost',function(req,res,next){
+router.get('/allhost',ensureAuthenticated,function(req,res,next){
     hostModel.find({})
     .exec()
     .then((host=>{

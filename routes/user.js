@@ -24,7 +24,8 @@ router.get('/login',function(req,res,next){
 })
 
 router.get('/profile',function(req,res,next){
-    res.render('profile');
+    console.log(req.user);
+    res.render('userProfile',{user:req.user});
 })
 
 
@@ -89,10 +90,11 @@ router.post('/login', (req,res,next) => {
 
 //After Login page.........................................................................
 router.get('/home',ensureAuthenticated, (req,res) => {
+    console.log(req.user);
     eventModel.find({})
     .then((event)=>{
        // console.log(event);
-        res.render('user_page',{events:event});
+        res.render('user_page',{events:event,user:req.user});
     })
     
 })
@@ -107,7 +109,7 @@ router.get('/logout', (req,res) => {
 
 
 //get all events by sports----------------------------------------------------------------
-router.get('/getevents/:sport',function(req,res,next){
+router.get('/getevents/:sport',ensureAuthenticated,function(req,res,next){
     eventModel.find({sport:req.params.sport})
     .exec()
     .then((event)=>{
@@ -125,16 +127,37 @@ router.get('/getevents/:sport',function(req,res,next){
 
 
 
-// //update request after join----------------------------------------------------------------------
-// router.put('/updateJoinRequest/:eventid',function(req,res,next){
-//     eventModel.findByIdAndUpdate({_id:req.params.eventid},{ "$push": { "user": req.body.user }})
-//     .exec()
-//     .then(()=>{
-//         userModel.findByIdAndUpdate({_id:req.body.user._id},{"$push":{Curevent:eventModel.find({_id:req.params.eventid})}})
-//         res.send("added");
-//     })
-//     .catch(next);
-// })
+//update request after join----------------------------------------------------------------------
+router.get('/updateJoinRequest/:eventid',ensureAuthenticated,function(req,res,next){
+    console.log(req.user);
+    eventModel.findByIdAndUpdate({_id:req.params.eventid},{ "$push": { "user": req.user }})
+    .exec()
+    .then(()=>{
+        eventModel.findOne({_id:req.params.eventid})
+        .then((event)=>{
+            eventModel.findByIdAndUpdate({_id:req.params.eventid},{"count":(event.count+1)})
+            .then(()=>{
+                console.log("after 2nd update")
+                eventModel.find({_id:req.params.eventid})
+                .then((event)=>{
+                    console.log(event);
+                    console.log("pushing event to user");
+                    userModel.findByIdAndUpdate({_id:req.user._id},{"$push": { "Curevent": event }})
+                    .then(()=>{
+                        userModel.find({_id:req.user._id})
+                        .then((updatedUser)=>{
+                            console.log(updatedUser);
+                        })
+                    })
+                })
+            })
+        })
+        
+        // userModel.findByIdAndUpdate({_id:req.body.user._id},{"$push":{Curevent:eventModel.find({_id:req.params.eventid})}})
+        // res.send("added");
+    })
+    .catch(next);
+})
 
 
 
@@ -157,7 +180,7 @@ router.get('/alluser',function(req,res,next){
 
 
 //on click join button on home user page-----------------------------------------------------------
-router.get('/joinpage/:eventid',function(req,res,next){
+router.get('/joinpage/:eventid',ensureAuthenticated,function(req,res,next){
     eventModel.find({_id:req.params.eventid})
     .then((event)=>{
         //console.log(event);
@@ -167,7 +190,7 @@ router.get('/joinpage/:eventid',function(req,res,next){
 })
 
 //post for payment button and redirect to success.ejs
-router.post('/charge',function(req,res){
+router.post('/charge',ensureAuthenticated,function(req,res){
     const amount=1500;
     stripe.customers.create({
         email:req.body.stripeEmail,
@@ -189,6 +212,12 @@ router.post('/charge',function(req,res){
 
 
 //after successfull join------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 

@@ -7,8 +7,7 @@ const userSchema = mongoose.Schema({
     phoneno : {type:String,required:true},
     sport : {type:String,required:true},
     Curevent:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref : 'Event'
+        type: Array
     }
 })
 
