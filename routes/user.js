@@ -25,7 +25,12 @@ router.get('/login',function(req,res,next){
 
 router.get('/profile',function(req,res,next){
     console.log(req.user);
-    res.render('userProfile',{user:req.user});
+    eventModel.find({})
+    .then((event)=>{
+        res.render('userProfile',{user:req.user,events:event});
+    })
+    .catch(next);
+    
 })
 
 

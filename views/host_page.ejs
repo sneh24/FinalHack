@@ -235,7 +235,7 @@ html, body {
       <div class="row">
         <% events.forEach(Event=>{ %>
           <%let d =new Date()%>
-          <%if(Event.date>d){ %>
+          <%if(Event.date>d && Event.count<Event.capacity){ %>
           <div class="col-xs-12 col-sm-4">
               <div class="card">
                   <a class="img-card">
