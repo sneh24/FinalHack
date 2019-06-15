@@ -136,7 +136,7 @@ router.post('/addevent/:hostid',ensureAuthenticated,function(req,res,next){
                     console.log(host.id);
                     console.log(req.params.hostid)
 
-                    hostModel.findByIdAndUpdate({_id:req.params.hostid},{ "$push": { "Curevent": newEvent }})
+                    hostModel.findByIdAndUpdate({_id:req.params.hostid},{ "$push": { "Curevent": newEvent._id }})
                     .then(()=>{
                         console.log("inside host");
                         hostModel.findOne({_id:req.params.hostid})
