@@ -30,7 +30,6 @@
 
   <style>
      @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
-
 html,
 body {
   -moz-box-sizing: border-box;
@@ -47,7 +46,6 @@ body {
   height: 100%;
   width: 100%;
 }
-
 .container-fostrap {
   display: table-cell;
   padding: 1em;
@@ -129,13 +127,10 @@ h1.heading {
   font-weight:600;
   text-transform: uppercase
 }
-
     /* Default to hide the video on all devices */
 #video{display:none}
-
 /* Default to display the image on all devices */
 #videosubstitute{display:block;width:auto;height:100%;}
-
 html, body {
     height: 100%;
     margin: 0;
@@ -159,7 +154,6 @@ html, body {
     top: 0px;
     z-index: 1;
 }
-
 @media (min-aspect-ratio: 16/9) {
   #video{
     height: 150%;
@@ -170,7 +164,6 @@ html, body {
     width: 100%;
     height: auto;}
 }
-
 @media (max-aspect-ratio: 16/9) {
   #video {
     width: 150%;
@@ -183,7 +176,6 @@ html, body {
 #video{display:block;}
 #videosubstitute{display:none}
 }   
-
 /* The container for our text and stuff */
 #messageBox{
     position: absolute;  top: 0;  left: 0;
@@ -193,7 +185,6 @@ html, body {
     width: 100%;
     height:100%;
 }
-
   </style>
 
 </head>
@@ -243,14 +234,11 @@ html, body {
   <div class="container">
       <div class="row">
         <% events.forEach(Event=>{ %>
-
-       
+          <%let d =new Date()%>
+          <%if(Event.date>d){ %>
           <div class="col-xs-12 col-sm-4">
               <div class="card">
                   <a class="img-card">
-
-
-
                       <% if (Event.sport == "Football") { %>
                         <img src="https://media.gettyimages.com/photos/fireworks-are-thrown-onto-the-pitch-by-the-galatasaray-fans-during-picture-id458399724?s=2048x2048" />
                       <% } %>
@@ -281,14 +269,7 @@ html, body {
                       <% if (Event.sport == "Rugby") { %>
                         <img src="https://images.unsplash.com/photo-1475171272919-d65b555848d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
                       <% } %>
-
-
-
-
-
                       
-
-
                         
                 </a>
                   <div class="card-content">
@@ -296,9 +277,9 @@ html, body {
                   <a > <%= Event.sport %> 
                         </a>
                       </h4>
-                      <!-- <p class="">
+                      <p class="">
                           <%= Event.place %> 
-                      </p> -->
+                      </p>
                       <p class="">
                           <%= Event.date %> 
                       </p>
@@ -313,7 +294,7 @@ html, body {
                   </div>
               </div>
           </div>
-        <% }) %>
+        <%} }) %>
 
         </div>
       </div>

@@ -261,7 +261,8 @@ html, body {
       <div class="row">
         <% events.forEach(Event=>{ %>
 
-       
+          <%let d =new Date()%>
+          <%if(Event.date>d){ %>
           <div class="col-xs-12 col-sm-4">
               <div class="card">
                   <a class="img-card">
@@ -325,13 +326,24 @@ html, body {
                       </p>
                   </div>
                   <div class="card-read-more">
-                      <a href="/user/joinpage/<%=Event._id%>" class="btn btn-link btn-block">
+                      <%console.log(Event.user[0])%>
+                      <%let flag=0;%>
+                      <%Event.user.forEach((eventUser)=>{%>
+                       <% if(eventUser._id==user._id)%>
+                        <%  flag=1;%>
+                     <% })%>
+
+                      <%if(flag==0){%>
+                        <a href="/user/joinpage/<%=Event._id%>" class="btn btn-link btn-block">
                           Join
                       </a>
+                     <%}else{%>
+                      <center><strong style="">Joined</strong></center>
+                   <% }%>
                   </div>
               </div>
           </div>
-        <% }) %>
+        <%} }) %>
 
         </div>
       </div>
