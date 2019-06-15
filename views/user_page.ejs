@@ -193,6 +193,48 @@ html, body {
     width: 100%;
     height:100%;
 }
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: darkgoldenrod;
+  }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
   </style>
 
@@ -204,13 +246,13 @@ html, body {
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav" style="background-color: #212529">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">MatchIT</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
-      </button>
+      </button> -->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="dropdown nav-item">
+            <!-- <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link js-scroll-trigger" data-toggle="dropdown" role="button" aria-expanded="false">Select Sport <span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu" style="background-color: #212529;">
                   <center>  <li ><a href="#" style="color: white">All Sports</a></li></center> 
@@ -224,24 +266,29 @@ html, body {
                                 <center>  <li><a href="#" style="color: white">Rugby</a></li></center> 
                                   <center>  <li><a href="#" style="color: white">Hockey</a></li></center> 
                                     <center>  <li><a href="#" style="color: white">Badminton</a></li></center> 
-                  <!-- <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li> -->
-                </ul></center> 
-              </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li>-->
+                  
+                </ul>
+              </li> -->
+              <div class="dropdown nav-item">
+                <button class="dropbtn nav-link js-scroll-trigger" style="background-color: #212529;">Select Sport</button>
+                <div class="dropdown-content" style="background-color: #212529;">6
+                    <center>  <a href="#" style="color: white">All Sports</a></center> 
+                    <center>  <a href="#" style="color: white">Football</a></center> 
+                    <center>  <a href="#" style="color: white">Cricket</a></center> 
+                    <center>  <a href="#" style="color: white">Basketball</a></center> 
+                    <center>  <a href="#" style="color: white">Volleyball</a></center> 
+                    <center>  <a href="#" style="color: white">Table Tennis</a></center> 
+                    <center>  <a href="#" style="color: white">Tennis</a></center> 
+                    <center>  <a href="#" style="color: white">Kabaddi</a></center> 
+                    <center>  <a href="#" style="color: white">Rugby</a></center> 
+                    <center>  <a href="#" style="color: white">Hockey</a></center> 
+                    <center>  <a href="#" style="color: white">Badminton</a></center>
+                <!-- <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a> -->
+                </div>
+              </div>
+          
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/user/profile">Profile</a>
           </li> 
