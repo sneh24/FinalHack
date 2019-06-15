@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const { ensureAuthenticated } = require('../config/authuser');
+const stripe = require('stripe')('sk_test_09bnhJ5rGUDFeQjMmQ2c0QpD00fjpjHpbe');
+
 
 const userModel = require('../models/userModel');
 const eventModel = require('../models/eventsModel');
@@ -21,6 +23,9 @@ router.get('/login',function(req,res,next){
     res.render('index');
 })
 
+router.get('/profile',function(req,res,next){
+    res.render('profile');
+})
 
 
 
@@ -161,6 +166,23 @@ router.get('/joinpage/:eventid',function(req,res,next){
     
 })
 
+//post for payment button and redirect to success.ejs
+router.post('/charge',function(req,res){
+    const amount=1500;
+    stripe.customers.create({
+        email:req.body.stripeEmail,
+        source:req.body.stripeToken
+    })
+    .then(customer=>stripe.charges.create({
+        amount,
+        description:'Event Joining',
+        currency:'usd',
+        customer:customer.id
+    }))
+    .then(charge => res.render('success'))
+    // console.log(req.body)
+
+})
 
 
 
