@@ -262,7 +262,7 @@ router.post('/review/:eventid',ensureAuthenticated,function(req,res,next){
     eventModel.findOne({_id:req.params.eventid})
     .then((event)=>{
         hostModel.findByIdAndUpdate({_id:event.host},{"$push":{review:{
-            userName:req.body.name,
+            userName:req.user.name,
             review:req.body.review
         }}})
         .then(()=>{
