@@ -112,8 +112,7 @@ router.post('/addevent/:hostid',ensureAuthenticated,function(req,res,next){
         date:req.body.date,
         capacity:req.body.capacity,
         count: 0,
-        status: true,
-        duration:req.body.duration
+        status: true
     })
 
     eventModel.find({date:req.body.date,place:req.body.place,sport:req.body.sport})
