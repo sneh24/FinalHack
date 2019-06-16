@@ -100,12 +100,8 @@ router.post('/login', (req,res,next) => {
 //After Login page.........................................................................
 router.get('/home',ensureAuthenticated, (req,res) => {
     //console.log(req.user);
-    eventModel.find({})
+    eventModel.find({sport:req.user.sport})
     .then((event)=>{
-        console.log("before the login page");
-        console.log(event);
-        console.log("current user")
-        console.log(req.user);
         res.render('user_page',{events:event,user:req.user});
     })
     
@@ -125,16 +121,22 @@ router.get('/getevents/:sport',ensureAuthenticated,function(req,res,next){
     eventModel.find({sport:req.params.sport})
     .exec()
     .then((event)=>{
-        if(event.length>0)
-        {
-            res.send(event);
-        }
-        else{
-            res.send("No Events");
-        }
+        res.render('user_page',{events:event,user:req.user});
     })
-    .catch(next)
+    .catch(next);
 })
+
+
+//get all events
+router.get('/getevents/',ensureAuthenticated,function(req,res,next){
+    eventModel.find({})
+    .exec()
+    .then((event)=>{
+        res.render('user_page',{events:event,user:req.user});
+    })
+    .catch(next);
+})
+
 
 
 
@@ -260,7 +262,7 @@ router.post('/review/:eventid',ensureAuthenticated,function(req,res,next){
     eventModel.findOne({_id:req.params.eventid})
     .then((event)=>{
         hostModel.findByIdAndUpdate({_id:event.host},{"$push":{review:{
-            userName:req.body.name,
+            userName:req.user.name,
             review:req.body.review
         }}})
         .then(()=>{
