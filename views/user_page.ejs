@@ -369,7 +369,7 @@ html, body {
                       </h6>
                     <%Event.user.forEach((eventUser)=>{%>
                      <% if(JSON.stringify(eventUser)==JSON.stringify(user._id)){%>
-                        <a href="http://localhost:2900/chat.html?name=<%=user.name%>&room=<%=Event._id%>" target="_blank"><button class="btn btn-primary">JOIN CHAT ROOM</button></a>
+                        <a href="http://13.235.99.119:2900/chat.html?name=<%=user.name%>&room=<%=Event._id%>" target="_blank"><button class="btn btn-primary">JOIN CHAT ROOM</button></a>
                       <%}else{%>
                         <span></span>
                     <%}})%>
