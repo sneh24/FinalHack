@@ -282,6 +282,33 @@ router.post('/review/:eventid',ensureAuthenticated,function(req,res,next){
 
 
 
+//attend the unjoin request-----------------------------------------------------------------------
+router.get('/acceptUnjoinRequest/:eventid',function(req,res,next){
+    eventModel.findByIdAndUpdate({_id:req.params.eventid},{$pull:{user:req.user._id}})
+    .then(()=>{
+        
+        eventModel.findOne({_id:req.params.eventid})
+        .then((event)=>{
+            console.log("after first update");
+            console.log(event);
+            console.log(event.count);
+            eventModel.findByIdAndUpdate({_id:req.params.eventid},{"count":(event.count-1)})
+            .exec()
+            .then(()=>{
+                console.log("after second update");
+                eventModel.find({})
+                .then((event)=>{
+                    res.render('user_page',{events:event,user:req.user});
+                })
+            })
+            
+        })
+        
+    })
+})
+
+
+
 
 
 
