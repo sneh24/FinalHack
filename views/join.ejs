@@ -9,6 +9,8 @@
   <meta name="author" content="">
 
   <title>MatchIT</title>
+  <link rel="icon" href="https://cdn.pixabay.com/photo/2012/04/24/18/11/basketball-40742_960_720.png" type="image/icon type">
+
 
   <!-- Bootstrap core CSS -->
   <link href="/FrontPage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -303,31 +305,36 @@ html, body {
                   </div>
               </div>
   
-  
-  
+  <center>
               <div class="col-xs-12 col-sm-8">
     
   
               <h4 class="card-title">
-                  <a > <%= Event.sport %> 
-                        </a>
+                  <h1 > <%= Event.sport %> 
+                  </h1>
                       </h4>
-                      <p class="">
+                      <span></br></span>
+                      <!-- <p>
+                          <%= Event.host %> 
+                      </p> -->
+                      <h6 class="">
                           <%= Event.place %> 
-                      </p>
-                      <p class="">
+                      </h6>
+                      <span></br></span>
+                      <h6 class="">
                           <%= Event.date %> 
-                      </p>
-                      <p class="">
+                      </h6>
+                      <span></br></span>
+                      <h4 class="">
                           <%= Event.count %> / <%= Event.capacity %> 
-                      </p>
-                     
+                      </h4>
+                    </br></br>
                       
             </div>
          
   
   
-  
+          </center>
   
     
     
@@ -344,6 +351,9 @@ html, body {
   
   
   <center>
+    <p>
+      Click to pay and Join
+    </p>
   
 
   <form action="/user/charge/<%=events[0]._id%>" method="POST">

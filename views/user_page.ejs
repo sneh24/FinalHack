@@ -9,6 +9,8 @@
   <meta name="author" content="">
 
   <title>MatchIT</title>
+  <link rel="icon" href="https://cdn.pixabay.com/photo/2012/04/24/18/11/basketball-40742_960_720.png" type="image/icon type">
+
 
   <!-- Bootstrap core CSS -->
   <link href="/FrontPage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -362,9 +364,9 @@ html, body {
                       <p class="">
                           <!-- <%= Event.duration %>  -->
                       </p>
-                      <p class="">
+                      <h6 class="">
                           <%= Event.count %> / <%= Event.capacity %> 
-                      </p>
+                      </h6>
                     <%Event.user.forEach((eventUser)=>{%>
                      <% if(JSON.stringify(eventUser)==JSON.stringify(user._id)){%>
                         <a href="http://localhost:2900/chat.html?name=<%=user.name%>&room=<%=Event._id%>" target="_blank"><button class="btn btn-primary">JOIN CHAT ROOM</button></a>
