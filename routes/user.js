@@ -25,6 +25,7 @@ router.get('/login',function(req,res,next){
 })
 
 
+
 //profile get----------------------------------------------------------------------------------
 
 router.get('/profile',ensureAuthenticated,function(req,res,next){
