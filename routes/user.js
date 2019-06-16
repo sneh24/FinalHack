@@ -204,13 +204,12 @@ router.get('/alluser',function(req,res,next){
 //on click join button on home user page-----------------------------------------------------------
 router.get('/joinpage/:eventid',ensureAuthenticated,function(req,res,next){
      eventModel.find({_id:req.params.eventid})
-     .then((event)=>{
-         console.log("Inside then");
-        console.log(event);
-        res.render('join',{events:event});
-    })
+     .then((event)=>
+            res.render('join',{events:event})
+ ) })
+        
+ 
     
-})
 
 //post for payment button and redirect to success.ejs
 router.post('/charge/:eventid',ensureAuthenticated,function(req,res){
