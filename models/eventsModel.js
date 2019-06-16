@@ -12,8 +12,7 @@ const eventSchema = mongoose.Schema({
     user : {type:Array,required:false},
     capacity : {type:Number,required:true},
     count : {type:Number,required:true},
-    status : {type:Boolean,required:true},
-    duration:{type:Date,required:true}
+    status : {type:Boolean,required:true}
 })
 
 module.exports = mongoose.model('Event',eventSchema);
