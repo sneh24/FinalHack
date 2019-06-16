@@ -355,10 +355,11 @@ img {
                 <center><div > 
                   <p style="font-size: 20px"><%=event.place%>
                   <%=event.sport%>
-                  <%=event.date%></p>
+                  <%=event.date%>
                   <%if(event.date<d){%>
                       <a href="/user/review/<%=event._id%>" ><button class="btn btn-dark ">Post Your Review</button></a>
                   <%}%>
+                </p>
                 </div></center>
              <% }})})%>
              <br>
